@@ -53,7 +53,7 @@ $getposts = mysqli_query($conn, "SELECT * FROM products WHERE id ='$eopid'") or 
 						$price = $row['price'];
 						$description = $row['description'];
 						$picture = $row['picture'];
-						$item = $row['item'];
+						$formula = $row['formula'];
 						$category = $row['category'];
 						$available =$row['available'];
 					}	
@@ -156,7 +156,7 @@ $search_value = "";
 	<div class="holecontainer" style=" padding-top: 20px; padding: 0 20%">
 		<div class="container signupform_content ">
 			<div>
-				<h2 style="padding-bottom: 20px;">Change Delevary Status</h2>
+				<h2 style="padding-bottom: 20px;">Change Delivery Status</h2>
 				<div style="float: right;">
 				<?php 
 					echo '
@@ -228,7 +228,7 @@ $search_value = "";
 						<ul style="float: left;">
 							<li style="float: left; padding: 0px 25px 25px 25px;">
 								<div class="home-prodlist-img">
-									<img src="../image/product/'.$item.'/'.$picture.'" class="home-prodlist-imgi">
+									<img src="../image/product/'.$category.'/'.$picture.'" class="home-prodlist-imgi">
 									
 									<div style="text-align: center; padding: 0 0 6px 0;">'.$pName.'</div>
 								</div>

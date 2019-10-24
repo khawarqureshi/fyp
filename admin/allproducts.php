@@ -83,7 +83,7 @@ $search_value = "";
 					<th>Available</th>
 					<th>Category</th>
 					<th>Type</th>
-					<th>Item</th>
+					<th>Formula</th>
 					<th>P Code</th>
 					<th>Edit</th>
 				</tr>
@@ -99,7 +99,7 @@ $search_value = "";
 						$available = $row['available'];
 						$category = $row['category'];
 						$type = $row['type'];
-						$item = $row['item'];
+						$formula = $row['formula'];
 						$pCode = $row['pCode'];
 						$picture = $row['picture'];
 					
@@ -111,10 +111,10 @@ $search_value = "";
 					<th><?php echo $available; ?></th>
 					<th><?php echo $category; ?></th>
 					<th><?php echo $type; ?></th>
-					<th><?php echo $item; ?></th>
+					<th><?php echo $formula; ?></th>
 					<th><?php echo $pCode; ?></th>
 					<th><?php echo '<div class="home-prodlist-img"><a href="editproduct.php?epid='.$id.'">
-									<img src="../image/product/'.$item.'/'.$picture.'" class="home-prodlist-imgi" style="height: 75px; width: 75px;">
+									<img src="../image/product/'.$category.'/'.$picture.'" class="home-prodlist-imgi" style="height: 75px; width: 75px;">
 									</a>
 								</div>' ?></th>
 				</tr>

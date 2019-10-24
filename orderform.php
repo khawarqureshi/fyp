@@ -33,9 +33,10 @@ $getposts = mysqli_query($conn, "SELECT * FROM products WHERE id ='$poid'") or d
 						$price = $row['price'];
 						$description = $row['description'];
 						$picture = $row['picture'];
-						$item = $row['item'];
+						$formula = $row['formula'];
 						$category = $row['category'];
 						$available =$row['available'];
+						$need_prescription = $row['need_prescription'];
 					}	
 
 //order
@@ -60,6 +61,37 @@ $quan = $_POST['quantity'];
 			
 		}
 
+		$prescription = @$_FILES['prescription']['name'];
+		$file_basename = substr($prescription, 0, strripos($prescription, '.'));
+		$file_ext = substr($prescription, strripos($prescription, '.'));
+
+		if (((@$_FILES['prescription']['type']=='image/jpeg') || (@$_FILES['prescription']['type']=='image/png') || (@$_FILES['prescription']['type']=='image/gif')) && (@$_FILES['prescription']['size'] < 1000000)) {
+
+			if (file_exists("image/prescription")) {
+				//nothing
+			}else {
+				mkdir("image/prescription");
+			}
+
+			
+			$filename = strtotime(date('Y-m-d H:i:s')).$file_ext;
+
+			if (file_exists("image/prescription".$filename)) {
+				echo @$_FILES["prescription"]["name"]."Already exists";
+			}else {
+				if(!move_uploaded_file(@$_FILES["prescription"]["tmp_name"], "image/prescription/".$filename))
+				{
+					echo "Something Worng on upload!!!";
+				}
+
+				//echo "Uploaded and stored in: userdata/profile_pics/$item/".@$_FILES["profilepic"]["name"];
+				 // item replace to formula
+				
+			}
+		} else {
+			$error_message = 'Add picture!';
+		}
+
 		
 		// Check if email already exists
 		
@@ -77,7 +109,7 @@ $quan = $_POST['quantity'];
 						";
 						//if (@mail($uemail_db,"eBuyBD Product Order",$msg, "From:eBuyBD <no-reply@ebuybd.xyz>")) {
 							
-						if(mysqli_query($conn, "INSERT INTO orders (uid,pid,quantity,oplace,mobile,odate,ddate) VALUES ('$user','$poid',$quan,'$_POST[address]','$_POST[mobile]','$d','$date')")){
+						if(mysqli_query($conn, "INSERT INTO orders (uid,pid,quantity,prescription,oplace,mobile,odate,ddate) VALUES ('$user','$poid',$quan,'$filename','$_POST[address]','$_POST[mobile]', '$d','$date')")){
 
 							//success message
 						$success_message = '
@@ -150,15 +182,15 @@ $quan = $_POST['quantity'];
 		<table>
 			<tr>
 				<th>
-					<a href="category/Medicine.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Medicine</a>
+					<a href="category/Headache.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Headache</a>
 				</th>
-				<th><a href="category/ornament.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Ornament</a></th>
-				<th><a href="category/watch.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Watch</a></th>
-				<th><a href="category/perfume.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Perfume</a></th>
-				<th><a href="category/hijab.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Hijab</a></th>
-				<th><a href="category/tshirt.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">T-Shirt</a></th>
-				<th><a href="category/footwear.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">FootWear</a></th>
-				<th><a href="category/toilatry.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Toilatry</a></th>
+				<th><a href="category/Depression.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Depression</a></th>
+				<th><a href="category/Infection.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Infection</a></th>
+				<th><a href="category/Nutritional.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Nutritional</a></th>
+				<th><a href="category/Orthopedic.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Orthopedic</a></th>
+				<th><a href="category/Allergy.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Allergy</a></th>
+				<th><a href="category/Nausea.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Nausea</a></th>
+				<th><a href="category/EyeInfection.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">EyeInfection</a></th>
 			</tr>
 		</table>
 	</div>
@@ -175,7 +207,7 @@ $quan = $_POST['quantity'];
 						<div class="">
 						<div class="signupform_text"></div>
 						<div>
-							<form action="" method="POST" class="registration">
+							<form action="" method="POST" class="registration" enctype="multipart/form-data">
 								<div class="signup_form" style="    margin-top: 38px;">
 									<div>
 										<td>
@@ -202,8 +234,21 @@ $quan = $_POST['quantity'];
 											<?php echo '
 											</select>
 										</td>
+									</div>'?>
+
+							<?php
+
+								if ($need_prescription) {
+
+									echo '<div>
+										<td>
+											<input name="prescription" id="prescription" name="prescription" required="required"  placeholder="Please upload medical prescription" class="password signupbox " type="file" size="30" value="" style="height: 100% !important;">
+										</td>
 									</div>
-									<div>
+									<div style="color: red; width: 300px !important">To order this medicine, you must upload a medical prescription by a doctor</div>';
+								}
+
+									echo '<div>
 										<input name="order" class="uisignupbutton signupbutton" type="submit" value="Confirm Order">
 									</div>
 									<div class="signup_error_msg"> '; ?>
@@ -234,9 +279,9 @@ $quan = $_POST['quantity'];
 						<ul style="float: left;">
 							<li style="float: left; padding: 0px 25px 25px 25px;">
 								<div class="home-prodlist-img"><a href="'.$category.'/view_product.php?pid='.$id.'">
-									<img src="image/product/'.$item.'/'.$picture.'" class="home-prodlist-imgi">
+									<img src="image/product/'.$formula.'/'.$picture.'" class="home-prodlist-imgi">
 									</a>
-									<div style="text-align: center; padding: 0 0 6px 0;"> <span style="font-size: 15px;">'.$pName.'</span><br> Price: <span id="amountText">'.$price.'</span> Tk <span id="aHiddenText" style="display:none">'.$price.'</span></div>
+									<div style="text-align: center; padding: 0 0 6px 0;"> <span style="font-size: 15px;">'.$pName.'</span><br> Price: <span id="amountText">'.$price.'</span> PKR <span id="aHiddenText" style="display:none">'.$price.'</span></div>
 								</div>
 								
 							</li>

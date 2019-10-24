@@ -32,7 +32,7 @@ $search_value = trim($_GET['keywords']);
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Medicine</title>
+	<title>Headache</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -79,15 +79,15 @@ $search_value = trim($_GET['keywords']);
 		<table>
 			<tr>
 				<th>
-					<a href="category/Medicine.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Medicine</a>
+					<a href="category/Headache.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Headache</a>
 				</th>
-				<th><a href="category/ornament.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Ornament</a></th>
-				<th><a href="category/watch.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Watch</a></th>
-				<th><a href="category/perfume.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Perfume</a></th>
-				<th><a href="category/hijab.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Hijab</a></th>
-				<th><a href="category/tshirt.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">T-Shirt</a></th>
-				<th><a href="category/footwear.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">FootWear</a></th>
-				<th><a href="category/toilatry.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Toilatry</a></th>
+				<th><a href="category/Depression.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Depression</a></th>
+				<th><a href="category/Infection.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Infection</a></th>
+				<th><a href="category/Nutritional.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Nutritional</a></th>
+				<th><a href="category/Orthopedic.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Orthopedic</a></th>
+				<th><a href="category/Allergy.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Allergy</a></th>
+				<th><a href="category/Nausea.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Nausea</a></th>
+				<th><a href="category/EyeInfection.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">EyeInfection</a></th>
 			</tr>
 		</table>
 	</div>
@@ -96,7 +96,7 @@ $search_value = trim($_GET['keywords']);
 		<?php 
 			if (isset($_GET['keywords']) && $_GET['keywords'] != ""){
 				$search_value = trim($_GET['keywords']);
-				$getposts = mysqli_query($conn, "SELECT * FROM products WHERE pName like '%$search_value%'  ORDER BY id DESC") or die(mysqli_error($conn));
+				$getposts = mysqli_query($conn, "SELECT * FROM products WHERE pName like '%$search_value%' OR formula like '%$search_value%'  ORDER BY id DESC") or die(mysqli_error($conn));
 					if ( $total = mysqli_num_rows($getposts)) {
 					echo '<ul id="recs">';
 					echo '<div style="text-align: center;"> '.$total.' Products Found... </div><br>';
@@ -106,15 +106,17 @@ $search_value = trim($_GET['keywords']);
 						$price = $row['price'];
 						$description = $row['description'];
 						$picture = $row['picture'];
-						$item = $row['item'];
+						$formula = $row['formula'];
+						$category = $row['category'];
+						
 						
 						echo '
 							<ul style="float: left;">
 								<li style="float: left; padding: 0px 25px 25px 25px;">
 									<div class="home-prodlist-img"><a href="category/view_product.php?pid='.$id.'">
-										<img src="image/product/'.$item.'/'.$picture.'" class="home-prodlist-imgi">
+										<img src="image/product/'.$category.'/'.$picture.'" class="home-prodlist-imgi">
 										</a>
-										<div style="text-align: center; padding: 0 0 6px 0;"> <span style="font-size: 15px;">'.$pName.'</span><br> Price: '.$price.' Tk</div>
+										<div style="text-align: center; padding: 0 0 6px 0;"> <span style="font-size: 15px;">'.$pName.'</span><br> Price: '.$price.' PKR</div>
 									</div>
 									
 								</li>

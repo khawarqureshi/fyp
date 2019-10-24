@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `available` int(11) NOT NULL,
   `category` varchar(100) NOT NULL,
   `type` varchar(100) NOT NULL,
-  `item` varchar(100) NOT NULL,
+  `formula` varchar(100) NOT NULL,
   `pCode` varchar(20) NOT NULL,
   `picture` text NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=latin1;
@@ -117,20 +117,20 @@ CREATE TABLE IF NOT EXISTS `products` (
 --
 
 INSERT INTO `products` (`id`, `pName`, `price`, `description`, `available`, `category`, `type`, `item`, `pCode`, `picture`) VALUES
-(3, 'Metal-Collar-Bone-Chain-Set', 1200, 'Dekhte khub e sundor', 2, 'women', 'Chain Set', 'ornament', 'SR002', 'Women-Neck-Jewelry-Exaggerated-Metal-Collar-Bone-Chain-Set.jpg'),
+(3, 'Metal-Collar-Bone-Chain-Set', 1200, 'Dekhte khub e sundor', 2, 'women', 'Chain Set', 'Depression', 'SR002', 'Women-Neck-Jewelry-Exaggerated-Metal-Collar-Bone-Chain-Set.jpg'),
 (4, 'Colors-Women-Embellished-Saree', 1200, 'kichu koilam na', 2, 'women', 'cloathing', 'saree', 'SR002', 'Colors-Women-Embellished-Saree_2.jpg'),
 (5, 'Colors-Women-Embellished-Sarees', 1200, 'kichu koilam na', 2, 'women', 'cloathing', 'saree', 'SR002', 'Colors-Women-Embellished-Saree_3.jpg'),
-(6, 'Jewelry-Color-diamond-Love-font', 2000, 'Dekhte khub e sundor', 2, 'women', 'Chain Set', 'ornament', 'SR002', 'Jewelry-Color-created-created-diamond-Love-font-b.jpg'),
-(7, 'Jewelry-full metal earring', 2000, 'Dekhte khub e sundor', 2, 'women', 'earring', 'ornament', 'SR002', 'earrings-online-for-women-4.jpg'),
+(6, 'Jewelry-Color-diamond-Love-font', 2000, 'Dekhte khub e sundor', 2, 'women', 'Chain Set', 'Depression', 'SR002', 'Jewelry-Color-created-created-diamond-Love-font-b.jpg'),
+(7, 'Jewelry-full metal earring', 2000, 'Dekhte khub e sundor', 2, 'women', 'earring', 'Depression', 'SR002', 'earrings-online-for-women-4.jpg'),
 (10, 'Boutique Saree 1', 1300, 'Osthir mama!', 4, 'women', 'cloathing', 'saree', 'SR001', 'Saree Red Color 1.jpg'),
 (11, 'fancy-look-attractive-saree-2-original', 1200, 'kichu koilam na', 2, 'women', 'cloathing', 'saree', 'SR002', 'new-designer-fancy-look-attractive-saree-2-original.jpg'),
 (26, 'Watches-for-women-5', 700, 'à¦¸à§à¦¨à§à¦¦à¦°, à¦†à¦•à¦°à§à¦·à¦£à§€à§Ÿ', 2, 'women', 'No', 'watch', 'W234', '1491496755.jpg'),
 (27, 'Diamond-Setting-Watch-3', 700, '2016-New-Electronic-Style-Women-Dress-New-Fashion-Watches-Imitation-Diamond-Setting-Watch-Casual-Wrist-Watch-3', 3, 'women', 'yes', 'watch', 'W234', '1491496880.jpg'),
 (28, 'Steel-Bracelet 2', 399, 'Steel-Bracelet-Women-Watches-Designs', 2, 'women', 'no', 'watch', 'W345', '1491496956.jpg'),
 (29, 'Steel-Bracelet-Women-3', 1000, 'Steel-Bracelet-Women-Watches', 3, 'women', 'yes', 'watch', 'W345', '1491497102.jpg'),
-(30, 'Right-hand-rings 2', 200, 'Right-hand-rings-collection-ornament-champagne-diamond-ring-for-women_mainro', 3, 'women', 'ok', 'ornament', 'O234', '1491497201.jpg'),
-(31, 'floral-ornament-ring-3d', 1200, 'floral-ornament-ring-3d-model-stl-3dm', 3, 'women', 'ok', 'ornament', 'O254', '1491497263.jpg'),
-(32, 'Nekles set', 799, 'Good, Awesome', 2, 'women', 'no', 'ornament', 'O2352', '1491497316.jpg'),
+(30, 'Right-hand-rings 2', 200, 'Right-hand-rings-collection-Depression-champagne-diamond-ring-for-women_mainro', 3, 'women', 'ok', 'Depression', 'O234', '1491497201.jpg'),
+(31, 'floral-Depression-ring-3d', 1200, 'floral-Depression-ring-3d-model-stl-3dm', 3, 'women', 'ok', 'Depression', 'O254', '1491497263.jpg'),
+(32, 'Nekles set', 799, 'Good, Awesome', 2, 'women', 'no', 'Depression', 'O2352', '1491497316.jpg'),
 (33, 'T Shirt 1', 250, 'Nice', 10, 'women', 'no', 'tshirt', 'TS252', '1491497478.jpg'),
 (34, 'T Shirt 2', 400, 'Nice Looking', 12, 'women', 'no', 'tshirt', 'TS3463', '1491497528.jpg'),
 (35, 'T Shirt 3', 299, 'Nice', 27, 'women', 'no', 'tshirt', 'TS345', '1491497588.jpg'),

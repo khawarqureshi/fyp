@@ -115,7 +115,7 @@ else {
 						$run2 = mysqli_query($conn, $query2);
 						$row2=mysqli_fetch_assoc($run2);
 						$opcate = $row2['category'];
-						$opitem = $row2['item'];
+						$opitem = $row2['formula'];
 						$oppicture = $row2['picture'];
 						$oprice = $row2['price'];
 

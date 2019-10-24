@@ -1,11 +1,10 @@
-<?php include ( "inc/connect.inc.php" );
+<?php
+
+include ( "inc/connect.inc.php" );
+require 'vendor/autoload.php';
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-require 'C:\Users\khawa\vendor\autoload.php';
-
-
-
-
 
 ob_start();
 session_start();
@@ -100,7 +99,7 @@ $_POST['last_name'] = trim($_POST['last_name']);
 							$mail->Subject = 'Activation code';
 							$mail->Body = $msg;
 							
-							/* SMTP parameters. */
+						// 	/* SMTP parameters. */
 							$mail->isSMTP();
 							$mail->Host = '	smtp.mailtrap.io';
 							$mail->SMTPAuth = TRUE;
@@ -109,7 +108,7 @@ $_POST['last_name'] = trim($_POST['last_name']);
 							$mail->Password = '789ad077335cd8';
 							$mail->Port = 587;
 							
-							/* Disable some SSL checks. */
+						// 	/* Disable some SSL checks. */
 							$mail->SMTPOptions = array(
 							   'ssl' => array(
 							   'verify_peer' => false,
@@ -119,9 +118,6 @@ $_POST['last_name'] = trim($_POST['last_name']);
 							);
 							
 							/* Finally send the mail. */
-					
-
-
 
 						if ($mail->send()) {
 							
@@ -135,9 +131,9 @@ $_POST['last_name'] = trim($_POST['last_name']);
 						<div class="signupform_text" style="font-size: 18px; text-align: center;">
 						<font face="bookman">
 							Email: '.$u_email.'<br>
-							Activation code sent to your email. <br>
-							Your activation code: '.$confirmCode.'
-						</font></div></div>';
+							Activation code sent to your email. <br>'.
+							// Your activation code: '.$confirmCode.
+							'</font></div></div>';
 						}else {
 							throw new Exception('Email is not valid!');
 						}
@@ -169,7 +165,7 @@ $_POST['last_name'] = trim($_POST['last_name']);
 <!doctype html>
 <html>
 	<head>
-		<title>Welcome to ebuybd online shop</title>
+		<title>Welcome to Online Pharmacy</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body class="home-welcome-text" style="background-image: url(image/homebackgrndimg2.png);">

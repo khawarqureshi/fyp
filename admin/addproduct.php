@@ -17,11 +17,11 @@ else {
 // $available = "";
 // $available = "";
 // $type = "";
-// $item = "";
+// $formula = "";
 // $pCode = "";
 // $descri = "";
  
-$pname = $price = $available = $category = $type = $item = $pCode =  $descri = "";
+$pname = $price = $available = $category = $type = $formula = $pCode =  $descri = "";
 
 
 if (isset($_POST['signup'])) {
@@ -31,7 +31,7 @@ $price = $_POST['price'];
 $available = $_POST['available'];
 $category = $_POST['category'];
 $type = $_POST['type'];
-$item = $_POST['item'];
+$formula = $_POST['formula'];
 $pCode = $_POST['code'];
 $descri = $_POST['descri'];
 //triming name
@@ -44,28 +44,28 @@ $file_ext = substr($profile_pic_name, strripos($profile_pic_name, '.'));
 
 if (((@$_FILES['profilepic']['type']=='image/jpeg') || (@$_FILES['profilepic']['type']=='image/png') || (@$_FILES['profilepic']['type']=='image/gif')) && (@$_FILES['profilepic']['size'] < 1000000)) {
 
-	$item = $item;
-	if (file_exists("../image/product/$item")) {
+	$category = $category;
+	if (file_exists("../image/product/$category")) {
 		//nothing
 	}else {
-		mkdir("../image/product/$item");
+		mkdir("../image/product/$category");
 	}
 	
 	
 	$filename = strtotime(date('Y-m-d H:i:s')).$file_ext;
 
-	if (file_exists("../image/product/$item/".$filename)) {
+	if (file_exists("../image/product/$category/".$filename)) {
 		echo @$_FILES["profilepic"]["name"]."Already exists";
 	}else {
-		if(move_uploaded_file(@$_FILES["profilepic"]["tmp_name"], "../image/product/$item/".$filename)){
+		if(move_uploaded_file(@$_FILES["profilepic"]["tmp_name"], "../image/product/$category/".$filename)){
 			$photos = $filename;
-			$result = mysqli_query($conn, "INSERT INTO products(pName,price,description,available,category,type,item,pCode,picture) VALUES ('$_POST[pname]','$_POST[price]','$_POST[descri]','$_POST[available]','$_POST[category]','$_POST[type]','$_POST[item]','$_POST[code]','$photos')");
+			$result = mysqli_query($conn, "INSERT INTO products(pName,price,description,available,category,type,formula,pCode,picture) VALUES ('$_POST[pname]','$_POST[price]','$_POST[descri]','$_POST[available]','$_POST[category]','$_POST[type]','$_POST[formula]','$_POST[code]','$photos')");
 				header("Location: allproducts.php");
 		}else {
 			echo "Something Worng on upload!!!";
 		}
 		//echo "Uploaded and stored in: userdata/profile_pics/$item/".@$_FILES["profilepic"]["name"];
-		
+		 // item replace to formula
 		
 	}
 	}
@@ -160,6 +160,14 @@ $search_value = "";
 															<input name="price" id="last_name" placeholder="Price" required="required" class="last_name signupbox" type="text" size="30" value="'.$price.'" >
 														</td>
 													</div>
+
+													<div>
+													  <td >
+													    	<input name="formula" id="mid_name" placeholder="formula" required="required" class="mid_name signupbox" type="text" size="30" value="'.$formula.'" >
+													  </td>
+											    	</div>
+
+
 													<div>
 														<td>
 															<input name="available" placeholder="Available Quantity" required="required" class="email signupbox" type="text" size="30" value="'.$available.'">
@@ -175,31 +183,29 @@ $search_value = "";
 															<select name="category" required="required" style=" font-size: 20px;
 														font-style: italic;margin-bottom: 3px;margin-top: 0px;padding: 14px;line-height: 25px;border-radius: 4px;border: 1px solid #169E8F;color: #169E8F;margin-left: 0;width: 300px;background-color: transparent;" class="">
 																<option selected value="category">category</option>
+																<option value="Headache">Headache</option>
+																<option value="Depression">Depression</option>
+																<option value="Infection">Infection</option>
+																<option value="Allergy">Allergy</option>
+																<option value="Orthopedic">Orthopedic</option>
+																<option value="Nutritional">Nutritional</option>
+																<option value="Nausea">Nausea</option>
+																<option value="EyeInfection">EyeInfection</option>
 															</select>
 														</td>
 													</div>
 													<div>
 														<select name="type" required="required" style=" font-size: 20px;
 														font-style: italic;margin-bottom: 3px;margin-top: 0px;padding: 14px;line-height: 25px;border-radius: 4px;border: 1px solid #169E8F;color: #169E8F;margin-left: 0;width: 300px;background-color: transparent;" class="">
-																<option selected value="clothing">Clothing</option>
-																<option value="other">Other</option>
+														 
+														        <option selected value="Type">Type</option>
+																<option value="Tablet">Tablet</option>
+																<option value="Syrup">Syrup</option>
+																<option value="Drops">Drops</option>
+																<option value="Injection">Injection</option>
 															</select>
 													</div>
-													<div>
-														<td>
-															<select name="item" required="required" style=" font-size: 20px;
-														font-style: italic;margin-bottom: 3px;margin-top: 0px;padding: 14px;line-height: 25px;border-radius: 4px;border: 1px solid #169E8F;color: #169E8F;margin-left: 0;width: 300px;background-color: transparent;" class="">
-																<option selected value="Medicine">Medicine</option>
-																<option value="ornament">Ornaments</option>
-																<option value="watch">Watch</option>
-																<option value="tshirt">T-Shirt</option>
-																<option value="hijab">Hijab</option>
-																<option value="perfume">Perfume</option>
-																<option value="footwear">Footwear</option>
-																<option value="toiletry">Toiletry</option>
-															</select>
-														</td>
-													</div>
+												
 													<div>
 														<td>
 															<input name="code" id="password-1" required="required"  placeholder="Code" class="password signupbox " type="text" size="30" value="'.$pCode.'">

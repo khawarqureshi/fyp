@@ -55,10 +55,16 @@ else {
 				<div id="srcheader">
 					
 					  <!-- whatsapp code of two line below  -->
+			<?php
 
-					  
-				<a href="https://api.whatsapp.com/send?phone=03125544577">
-	<img border="0" alt="whatsapp" src="https://www.aozata.com/wp-content/uploads/2019/01/iconfinder_whatsapp_287520.png" width="75" height="75"></a>
+				if ($user!="") {
+
+					echo '<a href="https://api.whatsapp.com/send?phone=03125544577"><img border="0" alt="whatsapp" src="https://www.aozata.com/wp-content/uploads/2019/01/iconfinder_whatsapp_287520.png" width="75" height="75"></a>';
+				} else {
+
+					echo '<a href="signin.php"><img border="0" alt="whatsapp" src="https://www.aozata.com/wp-content/uploads/2019/01/iconfinder_whatsapp_287520.png" width="75" height="75"></a>';
+				}
+			?>
 					
 					
 					
@@ -87,59 +93,59 @@ else {
 			<div style="padding: 20px 30px; width: 85%; margin: 0 auto;">
 				<ul style="float: left;">
 					<li style="float: left; padding: 25px;">
-						<div class="home-prodlist-img"><a href="category/Medicine.php">
-							<img src="./image/product/Medicine/123.jpg" class="home-prodlist-imgi">
+						<div class="home-prodlist-img"><a href="category/Headache.php">
+							<img src="./image/product/Headache/HeadImage.jpg" class="home-prodlist-imgi">
 							</a>
 						</div>
 					</li>
 				</ul>
 				<ul style="float: left;">
 					<li style="float: left; padding: 25px;">
-						<div class="home-prodlist-img"><a href="category/perfume.php">
-							<img src="./image/product/perfume/Most-Popular-Perfumes-for-women10.png" class="home-prodlist-imgi">
+						<div class="home-prodlist-img"><a href="category/Nutritional.php">
+							<img src="./image/product/Nutritional/NutritionImage.png" class="home-prodlist-imgi">
 							</a>
 						</div>
 					</li>
 				</ul>
 				<ul style="float: left;">
 					<li style="float: left; padding: 25px;">
-						<div class="home-prodlist-img"><a href="category/hijab.php">
-							<img src="./image/product/Medicine/hijab 1.png" class="home-prodlist-imgi"></a>
+						<div class="home-prodlist-img"><a href="category/Orthopedic.php">
+							<img src="./image/product/Orthopedic/OrthoImage.jpg" class="home-prodlist-imgi"></a>
 						</div>
 					</li>
 				</ul>
 				<ul style="float: left;">
 					<li style="float: left; padding: 25px;">
-						<div class="home-prodlist-img"><a href="category/toilatry.php">
-							<img src="./image/product/beauty/toiletries.png" class="home-prodlist-imgi"></a>
+						<div class="home-prodlist-img"><a href="category/EyeInfection.php">
+							<img src="./image/product/EyeInfection/EyeInfect.jpg" class="home-prodlist-imgi"></a>
 						</div>
 					</li>
 				</ul>
 				<ul style="float: left;">
 					<li style="float: left; padding: 25px;">
-						<div class="home-prodlist-img"><a href="category/footwear.php">
-							<img src="./image/product/footwear/footwear1.png" class="home-prodlist-imgi"></a>
+						<div class="home-prodlist-img"><a href="category/Nausea.php">
+							<img src="./image/product/Nausea/NauseaImage.jpg" class="home-prodlist-imgi"></a>
 						</div>
 					</li>
 				</ul>
 				<ul style="float: left;">
 					<li style="float: left; padding: 25px;">
-						<div class="home-prodlist-img"><a href="category/tshirt.php">
-							<img src="./image/product/Medicine/tshirts1.png" class="home-prodlist-imgi"></a>
+						<div class="home-prodlist-img"><a href="category/Allergy.php">
+							<img src="./image/product/Allergy/AlergyImage.jpg" class="home-prodlist-imgi"></a>
 						</div>
 					</li>
 				</ul>
 				<ul style="float: left;">
 					<li style="float: left; padding: 25px;">
-						<div class="home-prodlist-img"><a href="category/watch.php">
-							<img src="./image/product/watch/watches1.png" class="home-prodlist-imgi"></a>
+						<div class="home-prodlist-img"><a href="category/Infection.php">
+							<img src="./image/product/Infection/infectImage.jpg" class="home-prodlist-imgi"></a>
 						</div>
 					</li>
 				</ul>
 				<ul style="float: left;">
 					<li style="float: left; padding: 25px;">
-						<div class="home-prodlist-img"><a href="category/ornament.php">
-							<img src="./image/product/ornament/earrings1.png" class="home-prodlist-imgi"></a>
+						<div class="home-prodlist-img"><a href="category/Depression.php">
+							<img src="./image/product/Depression/depImage.jpg" class="home-prodlist-imgi"></a>
 						</div>
 					</li>
 				</ul>

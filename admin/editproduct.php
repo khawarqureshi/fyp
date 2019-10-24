@@ -30,8 +30,8 @@ $getposts = mysqli_query($conn, "SELECT * FROM products WHERE id ='$epid'") or d
 		$price = $row['price'];
 		$description = $row['description'];
 		$picture = $row['picture'];
-		$item = $row['item'];
-		$itemu = ucwords($row['item']);
+		$formula = $row['formula'];
+		$itemu = ucwords($row['formula']);
 		$type = $row['type'];
 		$typeu = ucwords($row['type']);
 		$category = $row['category'];
@@ -41,7 +41,7 @@ $getposts = mysqli_query($conn, "SELECT * FROM products WHERE id ='$epid'") or d
 	}	
 
 //update product
-$pname = $price = $availble = $category = $type = $item = $pcode = "";
+$pname = $price = $availble = $category = $type = $formula = $pcode = "";
 
 if (isset($_POST['updatepro'])) {
 	$pname = $_POST['pname'];
@@ -49,12 +49,12 @@ if (isset($_POST['updatepro'])) {
 	$available = $_POST['available'];
 	$category = $_POST['category'];
 	$type = $_POST['type'];
-	$item = $_POST['item'];
+	$formula = $_POST['formula'];
 	$pCode = $_POST['code'];
 	//triming name
 	$_POST['pname'] = trim($_POST['pname']);
 
-	if($result = mysqli_query($conn, "UPDATE products SET pName='$_POST[pname]',price='$_POST[price]',description='$_POST[descri]',available='$_POST[available]',category='$_POST[category]',type='$_POST[type]',item='$_POST[item]',pCode='$_POST[code]' WHERE id='$epid'")){
+	if($result = mysqli_query($conn, "UPDATE products SET pName='$_POST[pname]',price='$_POST[price]',description='$_POST[descri]',available='$_POST[available]',category='$_POST[category]',type='$_POST[type]',formula='$_POST[formula]',pCode='$_POST[code]' WHERE id='$epid'")){
 		header("Location: editproduct.php?epid=".$epid."");
 
 	}else {
@@ -74,24 +74,24 @@ $file_ext = substr($profile_pic_name, strripos($profile_pic_name, '.'));
 
 if (((@$_FILES['profilepic']['type']=='image/jpeg') || (@$_FILES['profilepic']['type']=='image/png') || (@$_FILES['profilepic']['type']=='image/jpg') || (@$_FILES['profilepic']['type']=='image/gif')) && (@$_FILES['profilepic']['size'] < 1000000)) {
 
-	$item = $item;
-	if (file_exists("../image/product/$item")) {
+	$category = $category;
+	if (file_exists("../image/product/$category")) {
 		//nothing
 	}else {
-		mkdir("../image/product/$item");
+		mkdir("../image/product/$category");
 	}
 	
 	
 	$filename = strtotime(date('Y-m-d H:i:s')).$file_ext;
 
-	if (file_exists("../image/product/$item/".$filename)) {
+	if (file_exists("../image/product/$category/".$filename)) {
 		echo @$_FILES["profilepic"]["name"]."Already exists";
 	}else {
-		if(move_uploaded_file(@$_FILES["profilepic"]["tmp_name"], "../image/product/$item/".$filename)){
+		if(move_uploaded_file(@$_FILES["profilepic"]["tmp_name"], "../image/product/$category/".$filename)){
 			$photos = $filename;
 			if($result = mysqli_query($conn, "UPDATE products SET picture='$photos' WHERE id='$epid'")){
 
-				$delete_file = unlink("../image/product/$item/".$picture);
+				$delete_file = unlink("../image/product/$category/".$picture);
 				header("Location: editproduct.php?epid=".$epid."");
 			}else {
 				echo "Wrong!";
@@ -232,23 +232,29 @@ $search_value = "";
 										<select name="type" required="required" style=" font-size: 20px;
 										font-style: italic;margin-bottom: 3px;margin-top: 0px;padding: 14px;line-height: 25px;border-radius: 4px;border: 1px solid #169E8F;color: #169E8F;margin-left: 0;width: 300px;background-color: transparent;" class="">
 											<option selected value="'.$type.'">'.$typeu.'</option>
-												<option value="clothing">Clothing</option>
-												<option value="other">Other</option>
+												
+												
+												<option value="Tablet">Tablet</option>
+												<option value="Syrup">Syrup</option>
+												<option value="Drops">Drops</option>
+												<option value="Injection">Injection</option>
+
+											
 											</select>
 									</div>
 									<div>
 										<td>
-											<select name="item" required="required" style=" font-size: 20px;
+											<select name="formula" required="required" style=" font-size: 20px;
 										font-style: italic;margin-bottom: 3px;margin-top: 0px;padding: 14px;line-height: 25px;border-radius: 4px;border: 1px solid #169E8F;color: #169E8F;margin-left: 0;width: 300px;background-color: transparent;" class="">
-												<option selected value="'.$item.'">'.$itemu.'</option>
+												<option selected value="'.$formula.'">'.$itemu.'</option>
 												<option value="Medicine">Medicine</option>
-												<option value="ornament">Ornaments</option>
-												<option value="watch">Watch</option>
-												<option value="tshirt">T-Shirt</option>
-												<option value="hijab">Hijab</option>
-												<option value="perfume">Perfume</option>
-												<option value="footwear">Footwear</option>
-												<option value="toiletry">Toiletry</option>
+												<option value="Depression">Depression</option>
+												<option value="Infection">Infection</option>
+												<option value="Allergy">Allergy</option>
+												<option value="Orthopedic">Orthopedic</option>
+												<option value="Nutritional">Nutritional</option>
+												<option value="Nausea">Nausea</option>
+												<option value="EyeInfection">EyeInfection</option>
 												<option value="Other">Other</option>
 											</select>
 										</td>
@@ -290,8 +296,8 @@ $search_value = "";
 						<ul style="float: left;">
 							<li style="float: left; padding: 0px 25px 25px 25px;">
 								<div class="home-prodlist-img prodlist-img">';
-								if (file_exists('../image/product/'.$item.'/'.$picture.'')){
-									echo '<img src="../image/product/'.$item.'/'.$picture.'" class="home-prodlist-imgi">';
+								if (file_exists('../image/product/'.$category.'/'.$picture.'')){
+									echo '<img src="../image/product/'.$category.'/'.$picture.'" class="home-prodlist-imgi">';
 								}else {
 									echo '
 									<div class="home-prodlist-imgi" style="text-align: center; padding: 0 0 6px 0;">No Image Found!</div>';

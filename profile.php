@@ -33,7 +33,7 @@ $search_value = "";
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Medicine</title>
+	<title>Headache</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -80,15 +80,15 @@ $search_value = "";
 		<table>
 			<tr>
 				<th>
-					<a href="category/Medicine.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Medicine</a>
+					<a href="category/Headache.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Headache</a>
 				</th>
-				<th><a href="category/ornament.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Ornament</a></th>
-				<th><a href="category/watch.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Watch</a></th>
-				<th><a href="category/perfume.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Perfume</a></th>
-				<th><a href="category/hijab.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Hijab</a></th>
-				<th><a href="category/tshirt.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">T-Shirt</a></th>
-				<th><a href="category/footwear.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">FootWear</a></th>
-				<th><a href="category/toilatry.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Toilatry</a></th>
+				<th><a href="category/Depression.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Depression</a></th>
+				<th><a href="category/Infection.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Infection</a></th>
+				<th><a href="category/Nutritional.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Nutritional</a></th>
+				<th><a href="category/Orthopedic.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Orthopedic</a></th>
+				<th><a href="category/Allergy.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Allergy</a></th>
+				<th><a href="category/Nausea.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Nausea</a></th>
+				<th><a href="category/EyeInfection.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">EyeInfection</a></th>
 			</tr>
 		</table>
 	</div>
@@ -115,9 +115,9 @@ $search_value = "";
 									<th>Price</th>
 									<th>Total Product</th>
 									<th>Order Date</th>
-									<th>Delevery Date</th>
-									<th>Delevery Place</th>
-									<th>Delevery Status</th>
+									<th>Delivery Date</th>
+									<th>Delivery Place</th>
+									<th>Delivery Status</th>
 									<th>View</th>
 								</tr>
 								<tr>
@@ -141,7 +141,7 @@ $search_value = "";
 										$pName = substr($row1['pName'], 0,50);
 										$price = $row1['price'];
 										$picture = $row1['picture'];
-										$item = $row1['item'];
+										$formula = $row1['formula'];
 										$category = $row1['category'];
 									 ?>
 									<th><?php echo $pName; ?></th>
@@ -152,7 +152,7 @@ $search_value = "";
 									<th><?php echo $oplace; ?></th>
 									<th><?php echo $dstatus; ?></th>
 									<th><?php echo '<div class="home-prodlist-img"><a href="'.$category.'/view_product.php?pid='.$pId.'">
-													<img src="image/product/'.$item.'/'.$picture.'" class="home-prodlist-imgi" style="height: 75px; width: 75px;">
+													<img src="image/product/'.$formula.'/'.$picture.'" class="home-prodlist-imgi" style="height: 75px; width: 75px;">
 													</a>
 												</div>' ?></th>
 								</tr>
