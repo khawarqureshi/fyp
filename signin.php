@@ -127,13 +127,17 @@ $_POST['last_name'] = trim($_POST['last_name']);
 						
 						//success message
 						$success_message = '
-						<div class="signupform_content"><h2><font face="bookman">Registration successfull!</font></h2>
-						<div class="signupform_text" style="font-size: 18px; text-align: center;">
-						<font face="bookman">
-							Email: '.$u_email.'<br>
-							Activation code sent to your email. <br>'.
+						<div class="container col-md-6">
+						<h2>
+						Account Created Successfully.
+						</h2>
+						<div>
+							<h1 class="alert alert-success">
+							Email: '.$u_email.'</h1>
+							Activation code sent to your email.'.
 							// Your activation code: '.$confirmCode.
-							'</font></div></div>';
+						'</div>	
+					</div>';
 						}else {
 							throw new Exception('Email is not valid!');
 						}
@@ -165,89 +169,141 @@ $_POST['last_name'] = trim($_POST['last_name']);
 <!doctype html>
 <html>
 	<head>
-		<title>Welcome to Online Pharmacy</title>
+		<title>Online Pharmacy | SignUp</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" 
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+		crossorigin="anonymous">
 	</head>
-	<body class="home-welcome-text" style="background-image: url(image/homebackgrndimg2.png);">
-		<div class="homepageheader" style="position: inherit;">
-			<div class="signinButton loginButton">
-				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
-					<a style="text-decoration: none;" href="signin.php">SIGN UP</a>
-				</div>
-				<div class="uiloginbutton signinButton loginButton" style="">
-					<a style="text-decoration: none;" href="login.php">LOG IN</a>
-				</div>
-			</div>
-			<div style="float: left; margin: 5px 0px 0px 23px;">
-				<a href="index.php">
-					<img style=" height: 75px; width: 130px;" src="image/logo.png">
-				</a>
-			</div>
-			<div class="">
-				<div id="srcheader">
-					<form id="newsearch" method="get" action="http://www.google.com">
-					        <input type="text" class="srctextinput" name="q" size="21" maxlength="120"  placeholder="Search Here..."><input type="submit" value="search" class="srcbutton" >
-					</form>
-				<div class="srcclear"></div>
-				</div>
-			</div>
+	<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+		<div class="container">
+
+		<a class="navbar-brand font-weight-bold" href="index.php">Online Pharmacy</a>
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+		 data-target="#navbarSupportedContent"
+		 aria-controls="navbarSupportedContent"
+		 aria-expanded="false"
+		 aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+		<form id="newsearch" class="form-inline my-2 my-lg-0" method="get" action="search.php">
+		<input type="text" class="form-control mr-sm-2" name="keywords"  maxlength="120"  
+		placeholder="Search Here...">
+		<input type="submit" value="search" class="btn btn-outline-success" >	
+		</form>
+
+			<ul class="navbar-nav ml-auto"> 
+				<li class="ml-1">
+					<a class="btn btn-primary" href="signin.php">SIGN UP</a>
+				<li>
+			<li class="ml-1">
+					<a class="btn btn-success" href="login.php">LOG IN</a>
+			<li>
+			</ul>
 		</div>
+		</div>
+		</nav>
+
+				<div class="jumbotron">
+					<h6 class="display-4 text-center">
+						Signup Form
+					</h6>
+				
+				</div>
+
+
+
+
+
 		<?php 
 			if(isset($success_message)) {echo $success_message;}
 			else {
 				echo '
-					<div class="holecontainer" style="float: right; margin-right: 36%; padding-top: 26px;">
-						<div class="container">
+					<div>
+						<div class="container col-md-6">
+						<div>';								
+						if (isset($error_message)) {echo $error_message;}
+							echo'
+						</div>
 							<div>
 								<div>
-									<div class="signupform_content">
-										<h2>Sign Up Form!</h2>
-										<div class="signupform_text"></div>
-										<div>
 											<form action="" method="POST" class="registration">
 												<div class="signup_form">
-													<div>
-														<td >
-															<input name="first_name" id="first_name" placeholder="First Name" required="required" class="first_name signupbox" type="text" size="30" value="'.$u_fname.'" >
-														</td>
+													<div class="form-group">
+														<div>
+															<input 
+															name="first_name" id="first_name" 
+															placeholder="First Name" 
+															required 
+															class="form-control" 
+															type="text"
+															value="'.$u_fname.'" >
+														</div>
 													</div>
 													<div>
-														<td >
-															<input name="last_name" id="last_name" placeholder="Last Name" required="required" class="last_name signupbox" type="text" size="30" value="'.$u_lname.'" >
-														</td>
+														<div class="form-group">
+															<input 
+															name="last_name" id="last_name" placeholder="Last Name" required="required" 
+															class="form-control" 
+															type="text"  
+															value="'.$u_lname.'" >
+														</div>
 													</div>
 													<div>
-														<td>
-															<input name="email" placeholder="Enter Your Email" required="required" class="email signupbox" type="email" size="30" value="'.$u_email.'">
-														</td
-			>										</div>
-													<div>
-														<td>
-															<input name="mobile" placeholder="Enter Your Mobile" required="required" class="email signupbox" type="text" size="30" value="'.$u_mobile.'">
-														</td>
+														<div class="form-group">
+															<input 
+															name="email" 
+															placeholder="Enter Your Email" required="required" 
+															class="form-control" 
+															type="email"  
+															value="'.$u_email.'">
+														</div
 													</div>
 													<div>
-														<td>
-															<input name="signupaddress" placeholder="Write Your Full Address" required="required" class="email signupbox" type="text" size="30" value="'.$u_address.'">
-														</td>
+														<div class="form-group">
+															<input 
+															name="mobile" 
+															placeholder="Enter Your Mobile" required="required" 
+															class="form-control" 
+															type="text"  
+															value="'.$u_mobile.'">
+														</div>
 													</div>
 													<div>
-														<td>
-															<input name="password" id="password-1" required="required"  placeholder="Enter New Password" class="password signupbox " type="password" size="30" value="'.$u_pass.'">
-														</td>
+														<div class="form-group">
+															<input 
+															name="signupaddress" 
+															placeholder="Write Your Full Address" required="required" 
+															class="form-control" 
+															type="text" 
+															value="'.$u_address.'">
+														</div>
 													</div>
 													<div>
-														<input name="signup" class="uisignupbutton signupbutton" type="submit" value="Sign Me Up!">
+														<div class="form-group">
+															<input 
+															name="password" 
+															id="password-1" 
+															required
+															placeholder="Enter New Password" 
+															class="form-control" 
+															type="password"
+															value="'.$u_pass.'">
+														</div>
 													</div>
-													<div class="signup_error_msg">';
-														
-															if (isset($error_message)) {echo $error_message;}
-															
-														
-													echo'</div>
-												</div>
+													<div>
+														<input 
+														name="signup" 
+														class="btn btn-outline-info btn-block" 
+														type="submit" value="Sign Me Up!">
+													</div>
 											</form>
-											
 										</div>
 									</div>
 								</div>

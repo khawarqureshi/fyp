@@ -22,23 +22,50 @@ else {
 </head>
 <body>
 	<?php include ( "../inc/mainheader.inc.php" ); ?>
-	<div class="categolis">
-		<table>
-			<tr>
-				<th>
-					<a href="Headache.php" style="text-decoration: none;color: #fff;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Headache</a>
-				</th>
-				<th><a href="Depression.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Depression</a></th>
-				<th><a href="Infection.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Infection</a></th>
-				<th><a href="Nutritional.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Nutritional</a></th>
-				<th><a href="Orthopedic.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Orthopedic</a></th>
-				<th><a href="Allergy.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Allergy</a></th>
-				<th><a href="Nausea.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Nausea</a></th>
-				<th><a href="EyeInfection.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #24bfae;border-radius: 12px;">EyeInfection</a></th>
-			</tr>
-		</table>
+	<div class="d-flex justify-content-around  jumbotron">
+				<a 
+				role="button"
+				class="btn btn-primary"
+				href="Headache.php">Headache
+				</a>
+				<a 
+				role="button" 
+				class="btn btn-primary"
+				href="Depression.php">Depression
+				</a>
+				<a 
+				role="button" 
+				class="btn btn-primary"
+				href="Infection.php">Infection
+				</a>
+
+				<a 
+				role="button" 
+				class="btn btn-primary"
+				href="Nutritional.php">Nutritional
+				</a>
+				<a 
+				role="button" 
+				class="btn btn-primary" 
+				href="Orthopedic.php">Orthopedic
+				</a>
+				<a 
+				role="button" 
+				class="btn btn-primary" 
+				href="Allergy.php">Allergy
+				</a>
+				<a 
+				role="button" 
+				class="btn btn-primary" 
+				href="Nausea.php">Nausea
+				</a>
+				<a 
+				role="button" 
+				class="btn btn-primary" 
+				href="EyeInfection.php">EyeInfection
+				</a>
 	</div>
-	<div style="padding: 30px 120px; font-size: 25px; margin: 0 auto; display: table; width: 98%;">
+	<div class="container">
 		<div>
 		<?php 
 			$getposts = mysqli_query($conn, "SELECT * FROM products WHERE available >='1' AND category ='EyeInfection'  ORDER BY id DESC LIMIT 10") or die(mysqli_error($conn));
@@ -52,16 +79,19 @@ else {
 						$picture = $row['picture'];
 						
 						echo '
-							<ul style="float: left;">
-								<li style="float: left; padding: 0px 25px 25px 25px;">
+							
+								<li style="float: left; class="list-group-item">
 									<div class="home-prodlist-img"><a href="view_product.php?pid='.$id.'">
-										<img src="../image/product/EyeInfection/'.$picture.'" class="home-prodlist-imgi">
+										<img src="../image/product/EyeInfection/'.$picture.'" 
+										class="img-thumbnail">
 										</a>
-										<div style="text-align: center; padding: 0 0 6px 0;"> <span style="font-size: 15px;">'.$pName.'</span><br> Price: '.$price.' PKR</div>
-									</div>
 									
+									</div>
+									<div style="text-align: center; padding: 0 0 6px 0;"> 	
+									<span style="font-size: 15px;">'.$pName.'</span>
+									<br> Price: '.$price.' PKR</div>
 								</li>
-							</ul>
+						
 						';
 
 						}
