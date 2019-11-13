@@ -18,8 +18,16 @@ else {
 		GROUP BY category");
 	$categories = mysqli_fetch_all($result, true);
 
+	$where = $from = $to = '';
+	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+		$from = $_POST['from'];
+		$to = $_POST['to'];
+		$where .= "WHERE odate BETWEEN '$from' AND '$to'";
+	}
+
 	$result = mysqli_query($conn,
-		"SELECT DISTINCT pid, SUM(quantity) AS orders FROM orders GROUP BY pid");
+		"SELECT DISTINCT pid, SUM(quantity) AS orders FROM orders $where GROUP BY pid");
 	$product_orders = mysqli_fetch_all($result, true);
 
 	$p_orders = [];
@@ -72,12 +80,13 @@ $search_value = "";
 			}
 
 			.container {
-			  width: 500px;
+			  width: 97%;
 			  margin: 20px;
 			  background: #fff;
 			  padding: 20px;
 			  overflow: hidden;
 			  float: left;
+			  height: 435px;
 			}
 
 			.horizontal .progress-bar {
@@ -120,7 +129,7 @@ $search_value = "";
 			  float: left;
 			  height: 300px;
 			  width: 40px;
-			  margin-right: 25px;
+			  margin-right: 70px;
 			}
 
 			.vertical .progress-track {
@@ -205,17 +214,28 @@ $search_value = "";
 		</div>
 
 		<div class="container vertical flat">
-			<h2>Sales Analysis (Feb)</h2>
+			<div style="float: right; margin-right: 20px">
+				<form action="" method="post">
+					<b>From</b>
+					<input type="date" name="from" value="<?=$from?>" required>
+
+					<b>To</b>
+					<input type="date" name="to" value="<?=$to?>" required>
+
+					<input type="submit" name="submit" value="Update">
+				</form>
+			</div>
+			<h2>Sales Analysis</h2>
 
 		<?php foreach ($orders as $cat => $orders) { ?>
 
 			<div class="progress-bar">
 			    <div class="progress-track">
 			    	<div class="progress-fill">
-			        	<span><?=$orders?></span>
+			        	<span><?= $orders * 10 ?></span>
 			    	</div>
 			    </div>
-			    <div><?=$cat?></div>
+			    <div style="margin-top: 10px"><?=$cat?></div>
 			</div>
 
 		<?php } ?>
@@ -230,7 +250,7 @@ $search_value = "";
 
 
 			$('.vertical .progress-fill span').each(function(){
-			  var percent = $(this).html();
+			  var percent = $(this).html() + '%';
 			  var pTop = 100 - ( percent.slice(0, percent.length - 1) ) + "%";
 			  $(this).parent().css({
 			    'height' : percent,
