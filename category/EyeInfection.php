@@ -65,8 +65,8 @@ else {
 				href="EyeInfection.php">EyeInfection
 				</a>
 	</div>
-	<div class="container">
-		<div>
+	<div class="container col-md-10">
+		
 		<?php 
 			$getposts = mysqli_query($conn, "SELECT * FROM products WHERE available >='1' AND category ='EyeInfection'  ORDER BY id DESC LIMIT 10") or die(mysqli_error($conn));
 					if (mysqli_num_rows($getposts)) {
@@ -80,17 +80,17 @@ else {
 						
 						echo '
 							
-								<li style="float: left; class="list-group-item">
-									<div class="home-prodlist-img"><a href="view_product.php?pid='.$id.'">
-										<img src="../image/product/EyeInfection/'.$picture.'" 
-										class="img-thumbnail">
-										</a>
-									
-									</div>
-									<div style="text-align: center; padding: 0 0 6px 0;"> 	
-									<span style="font-size: 15px;">'.$pName.'</span>
-									<br> Price: '.$price.' PKR</div>
-								</li>
+		<li style="float: left; class="list-group-item mb-1">
+			<div class="home-prodlist-img"><a href="view_product.php?pid='.$id.'">
+				<img src="../image/product/EyeInfection/'.$picture.'" 
+				class="img-thumbnail">
+				</a>
+			
+			</div>
+			<div style="text-align: center; padding: 0 0 6px 0;"> 	
+			<span style="font-size: 15px;">'.$pName.'</span>
+			<br> Price: '.$price.' PKR</div>
+		</li>
 						
 						';
 
@@ -98,7 +98,6 @@ else {
 				}
 		?>
 			
-		</div>
 	</div>
 </body>
 </html>

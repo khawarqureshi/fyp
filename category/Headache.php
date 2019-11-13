@@ -66,7 +66,7 @@ else {
 				</a>
 	</div>					
 
-	<div class="container">
+	<div class="container col-md-10">
 		<div>
 		<?php 
 			$getposts = mysqli_query($conn, "SELECT * FROM products WHERE available >='1' AND category ='Headache'  ORDER BY id DESC LIMIT 10") or die(mysqli_error($conn));
@@ -80,14 +80,14 @@ else {
 						$picture = $row['picture'];
 						
 						echo '
-								<li style="float: left;" class="list-group-item mb-1">
+								<li style="float: left;" class=" mb-1 s">
 									<div class="home-prodlist-img"><a href="view_product.php?pid='.$id.'">
 										<img src="../image/product/Headache/'.$picture.'" 
 										class="img-thumbnail">
 										</a>
 									</div>	
 									<div> 
-										<span style="font-size: 15px;">'.$pName.'</span><br> Price: '.$price.' PKR</div>
+										<span class="font-weight-bold" style="font-size: 15px;">'.$pName.'</span><br> Price: '.$price.' PKR</div>
 								</li>
 							
 						';

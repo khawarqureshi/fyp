@@ -146,7 +146,11 @@ $search_value = trim($_GET['keywords']);
 					if ( $total = mysqli_num_rows($getposts)) {
 					echo '<div class="text-center alert alert-secondary"> 
 					'.$total.' Products Found... </div>';
+
+					echo '<ul class="d-flex">';
+
 					while ($row = mysqli_fetch_assoc($getposts)) {
+					
 						$id = $row['id'];
 						$pName = $row['pName'];
 						$price = $row['price'];
@@ -157,7 +161,7 @@ $search_value = trim($_GET['keywords']);
 						
 						
 						echo '
-							<ul>
+						
 								<li class="list-group-item">
 									<div class="home-prodlist-img">
 									<a href="category/view_product.php?pid='.$id.'">
@@ -167,14 +171,17 @@ $search_value = trim($_GET['keywords']);
 									<div> 
 										<span style="font-size: 15px;">'.$pName.'</span>
 										<br> 
-										<h1>Price: '.$price.' PKR</h1>
+										<span>Price: '.$price.' PKR</span>
 										</div>
 								</li>
-							</ul>
+					
 						';
-
+						
 						}
-				}else {
+						echo '</ul>';
+				}
+			
+				else {
 				echo "<div class='alert alert-danger'>Nothing Found!</div>";
 			}
 			}else {

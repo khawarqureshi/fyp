@@ -65,7 +65,7 @@ else {
 				href="EyeInfection.php">EyeInfection
 				</a>
 	</div>
-	<div class="container">
+	<div class="container col-md-10">
 		<div>
 		<?php 
 			$getposts = mysqli_query($conn, "SELECT * FROM products WHERE available >='1' AND category ='Orthopedic'  ORDER BY id DESC LIMIT 10") or die(mysqli_error($conn));
