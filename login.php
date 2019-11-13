@@ -97,38 +97,44 @@ if(isset($_POST['activate'])){
 <!doctype html>
 <html>
 	<head>
-		<title>Welcome to ebuybd online shop</title>
+		<title>Online Pharmacy | Login</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" 
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+		crossorigin="anonymous">
 	</head>
-	<body class="home-welcome-text" style="background-image: url(image/homebackgrndimg1.png);">
-		<div class="homepageheader">
-			<div class="signinButton loginButton">
-				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
-					<a style="text-decoration: none; color: #fff;" href="signin.php">SIGN UP</a>
-				</div>
-				<div class="uiloginbutton signinButton loginButton" style="">
-					<a style="text-decoration: none; color: #fff;" href="login.php">LOG IN</a>
-				</div>
-			</div>
-			<div style="float: left; margin: 5px 0px 0px 23px;">
-				<a href="index.php">
-					<img style=" height: 75px; width: 130px;" src="image/logo.png">
-				</a>
-			</div>
-			<div class="">
-				<div id="srcheader">
-					<form id="newsearch" method="get" action="search.php">
-					        <input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..."><input type="submit" value="search" class="srcbutton" >
-					</form>
-				<div class="srcclear"></div>
-				</div>
-			</div>
+	<body>
+		
+		<nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+		<div class="container">
+
+		<a class="navbar-brand font-weight-bold" href="index.php">Online Pharmacy</a>
+
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+		<form id="newsearch" class="form-inline my-2 my-lg-0" method="get" action="search.php">
+		<input type="text" class="form-control mr-sm-2" name="keywords"  maxlength="120"  placeholder="Search Here...">
+		<input type="submit" value="search" class="btn btn-outline-success" >	
+		</form>
+
+			<ul class="navbar-nav ml-auto"> 
+				<li class="ml-1">
+					<a class="btn btn-primary" href="signin.php">SIGN UP</a>
+				<li>
+			<li class="ml-1">
+					<a class="btn btn-success" href="login.php">LOG IN</a>
+			<li>
+			</ul>
 		</div>
-		<div class="holecontainer" style="float: right; margin-right: 36%; padding-top: 110px;">
-			<div class="container">
-				<div>
-					<div>
-						<div class="signupform_content">
+		</div>
+		</nav>
+			
+		 <div class="jumbotron text-center">
 							<?php
 							 	if (isset($activacc)){
 							 		echo '<h2>Activation Form</h2>';
@@ -136,70 +142,90 @@ if(isset($_POST['activate'])){
 							 		echo '<h2>Login Form</h2>';
 							 	}
 							?>
-							<div class="signupform_text"></div>
-							<div>
-								<form action="" method="POST" class="registration">
-									<div class="signup_form">
-										<?php
-											if (isset($activacc)) {
-
-												echo '
-													<div class="signup_error_msg">
-														<div class="maincontent_text" style="text-align: center; font-size: 18px;">
-													<font face="bookman">Check your email!<br>
-													</font></div>
-													</div>
-													<div>
-														<td>
-															<input name="acemail" placeholder="Enter Your Email" required="required" class="email signupbox" type="email" size="30" value="'.$emails.'">
-														</td>
-													</div>
-													<div>
-														<td>
-															<input name="actcode" placeholder="Activation Code" required="required" class="email signupbox" type="text" size="30" value="'.$acccode.'">
-														</td>
-													</div>
-													<div>
-														<input name="activate" class="uisignupbutton signupbutton" type="submit" value="Active Account">
-													</div>
-													';
-											}else{
-												echo '
-										<div>
-											<td>
-												<input name="email" placeholder="Enter Your Email" required="required" class="email signupbox" type="email" size="30" value="'.$emails.'">
-											</td>
-										</div>
-										<div>
-											<td>
-												<input name="password" id="password-1" required="required"  placeholder="Enter Password" class="password signupbox " type="password" size="30" value="'.$passs.'">
-											</td>
-										</div>
-										<div>
-											<input name="login" class="uisignupbutton signupbutton" type="submit" value="Log In">
-										</div>
-										';
-											}
-										  ?>
-										<div style="float: right;">
-											<a class="forgetpass" href="forgetpass.php">
-												<span>forget your password???</span>
-											</a>
-										</div>
-										<div class="signup_error_msg">
-											<?php 
-												if (isset($error_message)) {echo $error_message;}
-												
-											?>
-										</div>
-									</div>
-								</form>
-								
-							</div>
-						</div>
-					</div>
+		 </div> 
+			
+		
+		<form action="" class="container col-md-6 m-auto" method="POST" class="registration">
+						<?php
+				if (isset($activacc)) {
+				echo '
+				<div class="signup_error_msg">
+				<div class="maincontent_text" style="text-align: center; font-size: 18px;">
+				<font face="bookman">Check your email!<br>
+				</font></div>
 				</div>
+				<div class="form-group">
+				<div>
+						<input 
+						name="acemail" 
+						placeholder="Enter Your Email"
+						required
+						class="form-control" 
+						type="email"  value="'.$emails.'">
+				</div>
+				</div>
+				<div>
+				<div class="form-group">
+						<input 
+						name="actcode"
+						placeholder="Activation Code"
+						required
+						class="form-control"
+						type="text"
+						value="'.$acccode.'">
+				</div>
+				</div>
+				<div>
+				<input 
+				name="activate" 
+				class="btn btn-outline-info btn-block"
+				type="submit"
+				value="Active Account">
+				</div>
+				';
+				}else{
+				echo '
+				<div>
+				<div class="form-group">
+						<input name="email" 
+						placeholder="Enter Your Email" 
+						required
+						class="form-control"
+						type="email"
+						value="'.$emails.'">
+				</div>
+				</div>
+				<div>
+				<div class="form-group">
+				<input 
+				name="password"
+				id="password-1"
+				required="required"
+				placeholder="Enter Password"
+				class="form-control"
+				type="password"
+				value="'.$passs.'">
+				</div>
+				</div>
+				<div>
+				<input 
+				name="login"
+				class="btn btn-outline-info btn-block"
+				type="submit"
+				value="Log In">
+				</div>
+				';
+				}
+				?>
+			<div class="text-center text-dark">
+		<a class="forgetpass" href="forgetpass.php">
+		<span>forget your password???</span>
+		</a>
+			<div class="signup_error_msg">
+			<?php 
+			if (isset($error_message)) {echo $error_message;}
+			?>
 			</div>
-		</div>
+</form>
 	</body>
 </html>

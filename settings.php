@@ -98,110 +98,154 @@ $npass1 = $_POST['npass1'];
 	<title>Headache</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" 
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+		crossorigin="anonymous">
 </head>
-<body style="background-image: url(image/homebackgrndimg1.png);">
-	<div class="homepageheader">
-			<div class="signinButton loginButton">
-				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
-					<?php 
-						if ($user!="") {
-							echo '<a style="text-decoration: none; color: #fff;" href="logout.php">LOG OUT</a>';
-						}
-						else {
-							echo '<a style="text-decoration: none; color: #fff;" href="signin.php">SIGN UP</a>';
-						}
-					 ?>
-					
-				</div>
-				<div class="uiloginbutton signinButton loginButton" style="">
-					<?php 
-						if ($user!="") {
-							echo '<a style="text-decoration: none; color: #fff;" href="profile.php?uid='.$user.'">Hi '.$uname_db.'</a>';
-						}
-						else {
-							echo '<a style="text-decoration: none; color: #fff;" href="login.php">LOG IN</a>';
-						}
-					 ?>
-				</div>
-			</div>
-			<div style="float: left; margin: 5px 0px 0px 23px;">
-				<a href="index.php">
-					<img style=" height: 75px; width: 130px;" src="image/logo.png">
-				</a>
-			</div>
-			<div class="">
-				<div id="srcheader">
-					<form id="newsearch" method="get" action="http://www.google.com">
-					        <input type="text" class="srctextinput" name="q" size="21" maxlength="120"  placeholder="Search Here..."><input type="submit" value="search" class="srcbutton" >
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+  <div class="container">
+  <a class="navbar-brand font-weight-bold" href="index.php">Online Pharmacy</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <form id="newsearch" class="form-inline my-2 my-lg-0" method="get" action="search.php">
+							<input type="text" class="form-control mr-sm-2" name="keywords"  maxlength="120"  placeholder="Search Here...">
+							<input type="submit" value="search" class="btn btn-outline-success" >	
 					</form>
-				<div class="srcclear"></div>
-				</div>
-			</div>
-		</div>
-	<div class="categolis">
-		<table>
-			<tr>
-				<th>
-					<a href="category/Headache.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Headache</a>
-				</th>
-				<th><a href="category/Depression.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Depression</a></th>
-				<th><a href="category/Infection.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Infection</a></th>
-				<th><a href="category/Nutritional.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Nutritional</a></th>
-				<th><a href="category/Orthopedic.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Orthopedic</a></th>
-				<th><a href="category/Allergy.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Allergy</a></th>
-				<th><a href="category/Nausea.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Nausea</a></th>
-				<th><a href="category/EyeInfection.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">EyeInfection</a></th>
-			</tr>
-		</table>
+    <ul class="navbar-nav ml-auto">
+	<li class="ml-1">
+	  <?php 
+				if ($user!="") {
+					echo '<a class="btn btn-success" href="profile.php?uid='.$user.'">Hi '.$uname_db.'</a>';
+				}
+				else {
+					echo '<a class="btn btn-success" href="login.php">LOG IN</a>';
+				}
+				?>
+	  </li>
+	  <li class="ml-1">
+	  <?php
+				if ($user!="") {
+
+					echo '<a class="btn btn-primary" href="https://api.whatsapp.com/send?phone=03125544577">Watsapp</a>';
+				} else {
+
+					echo '<a href="signin.php" class="btn btn-success">Watsapp</a>';
+				}
+?>
+	  </li>
+	  <li class="nav-item ml-1">
+				<?php 
+				if ($user!="") {
+					echo '<a class="btn btn-primary" href="logout.php">LOG OUT</a>';
+				}
+				else {
+					echo '<a class="btn btn-outline-primary" href="signin.php">SIGN UP</a>';
+				}
+				?>
+	  </li>
+	  <li>
+	</ul>			
+  </div>
+  </div>
+</nav>
+
+
+<div class="d-flex justify-content-around  jumbotron">
+				<a 
+				role="button"
+				class="btn btn-primary"
+				href="category/Headache.php">Headache
+				</a>
+				<a 
+				role="button" 
+				class="btn btn-primary"
+				href="category/Depression.php">Depression
+				</a>
+				<a 
+				role="button" 
+				class="btn btn-primary"
+				href="category/Infection.php">Infection
+				</a>
+
+				<a 
+				role="button" 
+				class="btn btn-primary"
+				href="category/Nutritional.php">Nutritional
+				</a>
+				<a 
+				role="button" 
+				class="btn btn-primary" 
+				href="category/Orthopedic.php">Orthopedic
+				</a>
+				<a 
+				role="button" 
+				class="btn btn-primary" 
+				href="category/Allergy.php">Allergy
+				</a>
+				<a 
+				role="button" 
+				class="btn btn-primary" 
+				href="category/Nausea.php">Nausea
+				</a>
+				<a 
+				role="button" 
+				class="btn btn-primary" 
+				href="category/EyeInfection.php">EyeInfection
+				</a>
 	</div>
-	<div style="margin-top: 20px;">
-		<div style="width: 901px; margin: 0 auto;">
+	<div >
 		
-			<ul>
-				<li style="float: left;">
-					<div class="settingsleftcontent">
-						<ul>
-							<li><?php echo '<a href="profile.php?uid='.$user.'" >My Orders</a>'; ?></li>
-							<li><?php echo '<a href="settings.php?uid='.$user.'" style=" background-color: #169e8f; border-radius: 4px; color: #fff;">Settings</a>'; ?></li>
-						</ul>
-					</div>
-				</li>
-				<li style="float: right;">
-					<div class="holecontainer" style=" padding-top: 20px; padding: 0 20%">
-						<form action="" method="POST" class="registration">
-							<div class="container signupform_content ">
-								<div style="text-align: center;font-size: 20px;color: #fff;margin: 0 0 5px 0;">
-									<td >Change Password:</td>
-								</div>
-								<div>
-									<td><input class="email signupbox" type="password" name="opass" placeholder="Old Password"></td>
-								</div>
-								<div>
-									<td><input class="email signupbox" type="password" name="npass" placeholder="New Password"></td>
-								</div>
-								<div>
-									<td><input class="email signupbox" type="password" name="npass1" placeholder="Repeat Password"></td>
-								</div>
-								<div style="text-align: center;font-size: 20px;color: #fff;margin: 0 0 5px 0;">
-									<td >Change Email:</td>
-								</div>
-								<div>
-									<td><?php echo '<input class="email signupbox" required type="email" name="email" placeholder="New Email" value="'.$uemail_db.'">'; ?></td>
-								</div>
-								<div>
-									<td><input class="uisignupbutton signupbutton" type="submit" name="changesettings" value="Update Settings"></td>
-								</div>
-								<div>
-									<?php if (isset($success_message)) {echo $success_message;} ?>
-								</div>
-							</div>
+			
+					<div class="container col-md-6">
+					<?php echo '<a class="btn btn-primary btn-block" href="profile.php?uid='.$user.'"  >My Orders</a>'; ?>
+		<?php echo '<a class="btn btn-primary btn-block" href="settings.php?uid='.$user.'" >Settings</a>'; ?>
+						<form action="" method="POST" >
+			<div class="form-group mt-1">
+				<input 
+				class="form-control" 
+				type="password" 
+				name="opass" 
+				placeholder="Old Password">
+			</div>
+			<div class="form-group">
+				<input 
+				class="form-control" 
+				type="password" 
+				name="npass" 
+				placeholder="New Password">
+			</div>
+			<div class="form-group">
+				<input 
+				class="form-control" 
+				type="password" 
+				name="npass1" 
+				placeholder="Repeat Password">
+			</div>
+			<label for="email">Change Email</label>
+			<div class="form-group">
+				<?php echo '<input 
+				 class="form-control"
+				 required 
+				 type="email" 
+				 name="email" 
+				 placeholder="New Email" 
+				 value="'.$uemail_db.'">'; ?>
+			</div>
+			<input 
+			class="btn btn-outline-info btn-block" 
+			type="submit" 
+			name="changesettings" 
+			value="Update Settings">
+			<div>
+				<?php if (isset($success_message)) {echo $success_message;} ?>
+			</div>
+							
 						</form>
 					</div>
-				</li>
-			</ul>
-		</div>
 	</div>
-
-	
 </body>
 </html>

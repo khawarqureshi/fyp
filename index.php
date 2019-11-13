@@ -19,18 +19,20 @@ else {
 		
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" 
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+		crossorigin="anonymous">
 		<script src="/js/homeslideshow.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
-	<body style="min-width: 980px;">
+	<body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
   <div class="container">
   <a class="navbar-brand font-weight-bold" href="#">Online Pharmacy</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
   <form id="newsearch" class="form-inline my-2 my-lg-0" method="get" action="search.php">
 							<input type="text" class="form-control mr-sm-2" name="keywords"  maxlength="120"  placeholder="Search Here...">
@@ -54,7 +56,7 @@ else {
 					echo '<a class="btn btn-primary" href="https://api.whatsapp.com/send?phone=03125544577">Watsapp</a>';
 				} else {
 
-					echo '<a href="signin.php" class="btn btn-primary">Watsapp</a>';
+					echo '<a href="signin.php" class="btn btn-success">Watsapp</a>';
 				}
 ?>
 	  </li>
