@@ -56,9 +56,11 @@ $search_value = "";
 <html>
 	<head>
 		<title>Welcome to online pharmacy</title>
-		<link rel="stylesheet" type="text/css" href="../css/style.css">
+		<link rel="stylesheet" 
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+		crossorigin="anonymous">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="/js/homeslideshow.js"></script>
 		<style type="text/css">
@@ -158,59 +160,29 @@ $search_value = "";
 			}
 		</style>
 	</head>
-	<body style="min-width: 980px; background-image: url(../image/homebackgrndimg4.png);">
-		<div class="homepageheader">
-			<div class="signinButton loginButton">
-				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
-					<?php 
-						if ($user!="") {
-							echo '<a style="text-decoration: none;color: #fff;" href="logout.php">LOG OUT</a>';
-						}
-						else {
-							echo '<a style="text-decoration: none;color: #fff;" href="signin.php">SIGN UP</a>';
-						}
-					 ?>
-					
-				</div>
-				<div class="uiloginbutton signinButton loginButton" style="">
-					<?php 
-						if ($user!="") {
-							echo '<a style="text-decoration: none;color: #fff;" href="login.php">Hi '.$uname_db.'</a>';
-						}
-						else {
-							echo '<a style="text-decoration: none;color: #fff;" href="login.php">LOG IN</a>';
-						}
-					 ?>
-				</div>
-			</div>
-			<div style="float: left; margin: 5px 0px 0px 23px;">
-				<a href="index.php">
-					<img style=" height: 75px; width: 130px;" src="../image/logo.png">
-				</a>
-			</div>
-			<div class="">
-				<div id="srcheader">
-					<form id="newsearch" method="get" action="search.php">
-					        <input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..."><input type="submit" value="search" class="srcbutton" >
-					</form>
-				<div class="srcclear"></div>
-				</div>
-			</div>
-		</div>
-		<div class="categolis">
-			<table>
-				<tr>
-					<th>
-						<a href="index.php" style="text-decoration: none;color: #fff;padding: 4px 12px;background-color: #24bfae;border-radius: 12px;">Home</a>
-					</th>
-					<th><a href="addproduct.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Add Product</a></th>
-					<th><a href="newadmin.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">New Admin</a></th>
-					<th><a href="allproducts.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">All Products</a></th>
-					<th><a href="orders.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Orders</a></th>
-					<th><a href="alert.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Send Alert</a></th>
-					<th><a href="analysis.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Analysis</a></th>
-				</tr>
-			</table>
+	<body>
+	<nav class="navbar navbar-light bg-light shadow-lg">
+	<div>
+	<a class="navbar-brand" href="login.php">
+		Online Pharmacy
+  </a>
+  <!-- <form id="newsearch" class='form-inline my-2' method="get" action="search.php">
+				        <?php 
+				        	echo '<input type="text" class="form-control mr-sm-2" name="keywords" size="21" maxlength="120"  placeholder="Search Here..." value="'.$search_value.'"><input type="submit" value="search" class="srcbutton" >';
+				         ?>
+				</form> -->
+	</div>
+
+</nav>
+
+	<div class="d-flex justify-content-around  jumbotron">
+			<a href="index.php" class='btn btn-primary'>Home</a>
+			<a href="addproduct.php" class='btn btn-primary'>Add Product</a>
+			<a href="newadmin.php" class='btn btn-primary'>New Admin</a>
+			<a href="allproducts.php" class='btn btn-primary'>All Products</a>
+			<a href="orders.php" class='btn btn-primary'>Orders</a>
+			<a href="alert.php" class='btn btn-primary'>Send Alert</a>
+			<a href="analysis.php" class='btn btn-primary'>Analysis</a>
 		</div>
 
 		<div class="container vertical flat">

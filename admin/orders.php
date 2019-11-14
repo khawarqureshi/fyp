@@ -20,60 +20,73 @@ else {
 <html>
 	<head>
 		<title>Welcome to online pharmacy</title>
-		<link rel="stylesheet" type="text/css" href="../css/style.css">
+		<link rel="stylesheet" 
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+		crossorigin="anonymous">
 	</head>
-	<body class="home-welcome-text" style="background-image: url(../image/homebackgrndimg2.png);">
-		<div class="homepageheader">
-			<div class="signinButton loginButton">
-				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
-					<?php 
-						if ($user!="") {
-							echo '<a style="text-decoration: none;color: #fff;" href="logout.php">LOG OUT</a>';
-						}
-					 ?>
-					
-				</div>
-				<div class="uiloginbutton signinButton loginButton">
-					<?php 
-						if ($user!="") {
-							echo '<a style="text-decoration: none;color: #fff;" href="login.php">Hi '.$uname_db.'</a>';
-						}
-						else {
-							echo '<a style="text-decoration: none;color: #fff;" href="login.php">LOG IN</a>';
-						}
-					 ?>
-				</div>
-			</div>
-			<div style="float: left; margin: 5px 0px 0px 23px;">
-				<a href="index.php">
-					<img style=" height: 75px; width: 130px;" src="../image/logo.png">
-				</a>
-			</div>
-			<div class="">
-				<div id="srcheader">
-					<form id="newsearch" method="get" action="http://www.google.com">
-					        <input type="text" class="srctextinput" name="q" size="21" maxlength="120"  placeholder="Search Here..."><input type="submit" value="search" class="srcbutton" >
+	<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+  <div class="container">
+  <a class="navbar-brand font-weight-bold" href="index.php">Online Pharmacy</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <form id="newsearch" class="form-inline my-2 my-lg-0" method="get" action="search.php">
+							<input type="text" class="form-control mr-sm-2" name="keywords"  maxlength="120"  placeholder="Search Here...">
+							<input type="submit" value="search" class="btn btn-outline-success" >	
 					</form>
-				<div class="srcclear"></div>
-				</div>
-			</div>
+    <ul class="navbar-nav ml-auto">
+	<li class="ml-1">
+	  <?php 
+				if ($user!="") {
+					echo '<a class="btn btn-success" href="profile.php?uid='.$user.'">Hi '.$uname_db.'</a>';
+				}
+				else {
+					echo '<a class="btn btn-success" href="login.php">LOG IN</a>';
+				}
+				?>
+	  </li>
+	  <li class="ml-1">
+	  <?php
+				if ($user!="") {
+
+					echo '<a class="btn btn-primary" href="https://api.whatsapp.com/send?phone=03125544577">Watsapp</a>';
+				} else {
+
+					echo '<a href="signin.php" class="btn btn-success">Watsapp</a>';
+				}
+?>
+	  </li>
+	  <li class="nav-item ml-1">
+				<?php 
+				if ($user!="") {
+					echo '<a class="btn btn-primary" href="logout.php">LOG OUT</a>';
+				}
+				else {
+					echo '<a class="btn btn-outline-primary" href="signin.php">SIGN UP</a>';
+				}
+				?>
+	  </li>
+	  <li>
+	</ul>
+				
+  </div>
+  </div>
+</nav>
+		<div class="d-flex justify-content-around  jumbotron">
+			<a href="index.php" class='btn btn-primary'>Home</a>
+			<a href="addproduct.php" class='btn btn-primary'>Add Product</a>
+			<a href="newadmin.php" class='btn btn-primary'>New Admin</a>
+			<a href="allproducts.php" class='btn btn-primary'>All Products</a>
+			<a href="orders.php" class='btn btn-primary'>Orders</a>
+			<a href="alert.php" class='btn btn-primary'>Send Alert</a>
+			<a href="analysis.php" class='btn btn-primary'>Analysis</a>
 		</div>
-		<div class="categolis">
-			<table>
+		<div class='col-md-10 container'>
+			<table class="table table-hover m-auto table-bordered">
 				<tr>
-					<th>
-						<a href="index.php" style="text-decoration: none;color: #fff;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Home</a>
-					</th>
-					<th><a href="addproduct.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Add Product</a></th>
-					<th><a href="newadmin.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">New Admin</a></th>
-					<th><a href="allproducts.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">All Products</a></th>
-					<th><a href="orders.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #24bfae;border-radius: 12px;">Orders</a></th>
-				</tr>
-			</table>
-		</div>
-		<div>
-			<table class="rightsidemenu">
-				<tr style="font-weight: bold;" colspan="10" bgcolor="#4DB849">
 					<th>Id</th>
 					<th>User Id</th>
 					<th>Product Id</th>
@@ -86,7 +99,7 @@ else {
 					<th>User Name</th>
 					<th>User Mobile</th>
 					<th>User Email</th>
-					<th>Edit</th>
+					<!-- <th>Edit</th> -->
 				</tr>
 				<tr>
 					<?php include ( "../inc/connect.inc.php");
@@ -121,23 +134,23 @@ else {
 
 					
 					 ?>
-					<th><?php echo $oid; ?></th>
-					<th><?php echo $ouid; ?></th>
-					<th><?php echo $opid; ?></th>
-					<th><?php echo ''.$oquantity.' * '.$oprice.' = '.$oquantity*$oprice.''; ?></th>
-					<th><?php echo $oplace; ?></th>
-					<th><?php echo $omobile; ?></th>
-					<th><?php echo $odstatus; ?></th>
-					<th><?php echo $odate; ?></th>
-					<th><?php echo $ddate; ?></th>
+					<td class='font-weight-light'><?php echo $oid; ?></td>
+					<td><?php echo $ouid; ?></td>
+					<td><?php echo $opid; ?></td>
+					<td><?php echo ''.$oquantity.' * '.$oprice.' = '.$oquantity*$oprice.''; ?></td>
+					<td><?php echo $oplace; ?></td>
+					<td><?php echo $omobile; ?></td>
+					<td><?php echo $odstatus; ?></td>
+					<td><?php echo $odate; ?></td>
+					<td><?php echo $ddate; ?></td>
 
-					<th><?php echo $ofname; ?></th>
-					<th><?php echo $oumobile; ?></th>
-					<th><?php echo $ouemail; ?></th>
-					<th><?php echo '<div class="home-prodlist-img"><a href="editorder.php?eoid='.$oid.'">
+					<td><?php echo $ofname; ?></td>
+					<td><?php echo $oumobile; ?></td>
+					<td><?php echo $ouemail; ?></td>
+					<!-- <td><?php echo '<div class="home-prodlist-img"><a href="editorder.php?eoid='.$oid.'">
 									<img src="../image/product/'.$opitem.'/'.$oppicture.'" class="home-prodlist-imgi" style="height: 75px; width: 75px;">
 									</a>
-								</div>' ?></th>
+								</div>' ?></td> -->
 				</tr>
 				<?php } ?>
 			</table>

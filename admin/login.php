@@ -29,7 +29,7 @@ if (isset($_POST['login'])) {
 		else {
 			$error_message = '<br><br>
 				<div class="maincontent_text" style="text-align: center; font-size: 18px;">
-				<font face="bookman">Username or Password incorrect.<br>
+				<div class="alert alert-danger">Username or Password incorrect.</div>
 				</font></div>';
 			
 		}
@@ -45,66 +45,75 @@ $search_value = "";
 <html>
 	<head>
 		<title>Welcome to online pharmacy</title>
-		<link rel="stylesheet" type="text/css" href="../css/style.css">
+		<link rel="stylesheet" 
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+		crossorigin="anonymous">
 	</head>
-	<body class="home-welcome-text" style="background-image: url(../image/homebackgrndimg1.png);">
-		<div class="homepageheader">
-			<div class="signinButton loginButton">
-				<div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
-					<a style="text-decoration: none;" href="login.php">LOG IN</a>
-				</div>
-			</div>
-			<div style="float: left; margin: 5px 0px 0px 23px;">
-				<a href="index.php">
-					<img style=" height: 75px; width: 130px;" src="../image/logo.png">
-				</a>
-			</div>
-			<div id="srcheader">
-				<form id="newsearch" method="get" action="search.php">
+	<body>
+		
+	<nav class="navbar navbar-light bg-light shadow-lg">
+	<div class="container">
+	<a class="navbar-brand" href="login.php">
+		Online Pharmacy
+  </a>
+  <!-- <form id="newsearch" class='form-inline my-2' method="get" action="search.php">
 				        <?php 
-				        	echo '<input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..." value="'.$search_value.'"><input type="submit" value="search" class="srcbutton" >';
+				        	echo '<input type="text" class="form-control mr-sm-2" name="keywords" size="21" maxlength="120"  placeholder="Search Here..." value="'.$search_value.'"><input type="submit" value="search" class="srcbutton" >';
 				         ?>
-				</form>
-			<div class="srcclear"></div>
-			</div>
-		</div>
-		<div class="holecontainer" style="float: right; margin-right: 36%; padding-top: 110px;">
-			<div class="container">
+				</form> -->
+	</div>
+
+</nav>
+		
+
+		
+			
+		
+
+			<div class="container mt-4">
+
 				<div>
-					<div>
-						<div class="signupform_content">
-							<h2>Admin Login</h2>
-							<div class="signupform_text"></div>
-							<div>
-								<form action="" method="POST" class="registration">
-									<div class="signup_form">
-										<div>
-											<td>
-												<input name="email" placeholder="Enter Your Email" required="required" class="email signupbox" type="email" size="30" value="">
-											</td>
-										</div>
-										<div>
-											<td>
-												<input name="password" id="password-1" required="required"  placeholder="Enter Password" class="password signupbox " type="password" size="30" value="">
-											</td>
-										</div>
-										<div>
-											<input name="login" class="uisignupbutton signupbutton" type="submit" value="Log In">
-										</div>
-										<div class="signup_error_msg">
-											<?php 
-												if (isset($error_message)) {echo $error_message;}
-												
-											?>
-										</div>
-									</div>
-								</form>
+		<form action="" class='container col-md-6 mt-6 ' method="POST" class="registration">
+		<div class="signup_error_msg">
+					<?php 
+						if (isset($error_message)) {echo $error_message;}
+						
+					?>
+				</div>
+		<h2 class='text-center'>Admin Login</h2>
+			<div class="signup_form m-auto">
+				<div class='form-group'>
+				
+						<input name="email" class='form-control' placeholder="Enter Your Email" required="required" class="email signupbox" type="email" size="30" value="">
+					
+				</div>
+				<div class='form-group'>
+				
+						<input 
+						name="password" 
+						class='form-control' 
+						id="password-1" required 
+						placeholder="Enter Password" 
+						type="password" >
+					
+				</div>
+				<div>
+					<input 
+					name="login" 
+					class='btn btn-outline-success btn-block' 
+					type="submit" 
+					value="Log In">
+				</div>
+			
+			</div>
+		</form>
 								
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+
 	</body>
 </html>
