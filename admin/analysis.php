@@ -176,9 +176,6 @@ $search_value = "";
 			</div>
 			<h2>Sales Analysis</h2>
 
-
-			<!-- <?php var_dump($orders);die; ?> -->
-
 		<?php foreach ($orders as $cat => $orders) { ?>
 
 			<div class="progress-bar">
