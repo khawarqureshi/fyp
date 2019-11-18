@@ -96,79 +96,127 @@ if (isset($_POST['proceed'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Order</title>
+    <title>Cart</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body style="background-image: url(image/homebackgrndimg1.png);">
-<div class="homepageheader">
-    <div class="signinButton loginButton">
-        <div class="uiloginbutton signinButton loginButton" style="margin-right: 40px;">
-            <?php
-            if ($user!="") {
-                echo '<a style="text-decoration: none; color: #fff;" href="logout.php">LOG OUT</a>';
-            }
-            else {
-                echo '<a style="text-decoration: none; color: #fff;" href="signin.php">SIGN UP</a>';
-            }
-            ?>
+   
+    <link rel="stylesheet" 
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+		crossorigin="anonymous">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+   
+   
+   </head>
 
-        </div>
-        <div class="uiloginbutton signinButton loginButton" style="">
-            <?php
-            if ($user!="") {
-                echo '<a style="text-decoration: none; color: #fff;" href="profile.php?uid='.$user.'">Hi '.$uname_db.'</a>';
-            }
-            else {
-                echo '<a style="text-decoration: none; color: #fff;" href="login.php">LOG IN</a>';
-            }
-            ?>
-        </div>
-    </div>
-    <div style="float: left; margin: 5px 0px 0px 23px;">
-        <a href="index.php">
-            <img style=" height: 75px; width: 130px;" src="image/logo.png">
-        </a>
-    </div>
-    <div class="">
-        <div id="srcheader">
-            <form id="newsearch" method="get" action="search.php">
-                <input type="text" class="srctextinput" name="keywords" size="21" maxlength="120"  placeholder="Search Here..."><input type="submit" value="search" class="srcbutton" >
-            </form>
-            <div class="srcclear"></div>
-        </div>
-    </div>
-</div>
-<div class="categolis">
-    <table>
-        <tr>
-            <th>
-                <a href="category/Headache.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Headache</a>
-            </th>
-            <th><a href="category/Depression.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Depression</a></th>
-            <th><a href="category/Infection.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Infection</a></th>
-            <th><a href="category/Nutritional.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Nutritional</a></th>
-            <th><a href="category/Orthopedic.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Orthopedic</a></th>
-            <th><a href="category/Allergy.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Allergy</a></th>
-            <th><a href="category/Nausea.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">Nausea</a></th>
-            <th><a href="category/EyeInfection.php" style="text-decoration: none;color: #ddd;padding: 4px 12px;background-color: #c7587e;border-radius: 12px;">EyeInfection</a></th>
-        </tr>
-    </table>
-</div>
-<div class="holecontainer" style=" padding-top: 20px; padding: 0 20%">
+   <body>
+   
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
+  <div class="container">
+  <a class="navbar-brand font-weight-bold" href="index.php">Online Pharmacy</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <form id="newsearch" class="form-inline my-2 my-lg-0" method="get" action="search.php">
+							<input type="text" class="form-control mr-sm-2" name="keywords"  maxlength="120"  placeholder="Search Here...">
+							<input type="submit" value="search" class="btn btn-outline-success" >	
+					</form>
+    <ul class="navbar-nav ml-auto">
+	<li class="ml-1">
+	  <?php 
+				if ($user!="") {
+					echo '<a class="btn btn-success" href="profile.php?uid='.$user.'">Hi '.$uname_db.'</a>';
+				}
+				else {
+					echo '<a class="btn btn-success" href="login.php">LOG IN</a>';
+				}
+				?>
+	  </li>
+	  <li class="ml-1">
+	  <?php
+				if ($user!="") {
+
+					echo '<a class="btn btn-primary" href="https://api.whatsapp.com/send?phone=03125544577">whatsapp</a>';
+				} else {
+
+					echo '<a href="signin.php" class="btn btn-success">whatsapp</a>';
+				}
+?>
+	  </li>
+	  <li class="nav-item ml-1">
+				<?php 
+				if ($user!="") {
+					echo '<a class="btn btn-primary" href="logout.php">LOG OUT</a>';
+				}
+				else {
+					echo '<a class="btn btn-outline-primary" href="signin.php">SIGN UP</a>';
+				}
+				?>
+	  </li>
+	  <li>
+	</ul>
+				
+  </div>
+  </div>
+</nav>
+<div class="d-flex justify-content-around  jumbotron">
+				<a 
+				role="button"
+				class="btn btn-primary"
+				href="category/Headache.php">Headache
+				</a>
+				<a 
+				role="button" 
+				class="btn btn-primary"
+				href="category/Depression.php">Depression
+				</a>
+				<a 
+				role="button" 
+				class="btn btn-primary"
+				href="category/Infection.php">Infection
+				</a>
+
+				<a 
+				role="button" 
+				class="btn btn-primary"
+				href="category/Nutritional.php">Nutritional
+				</a>
+				<a 
+				role="button" 
+				class="btn btn-primary" 
+				href="category/Orthopedic.php">Orthopedic
+				</a>
+				<a 
+				role="button" 
+				class="btn btn-primary" 
+				href="category/Allergy.php">Allergy
+				</a>
+				<a 
+				role="button" 
+				class="btn btn-primary" 
+				href="category/Nausea.php">Nausea
+				</a>
+				<a 
+				role="button" 
+				class="btn btn-primary" 
+				href="category/EyeInfection.php">EyeInfection
+				</a>
+	</div>	
+<div class="holecontainer" >
     <div class="container signupform_content ">
         <div>
             <br>
-            <h2 style="padding-bottom: 20px;">Shopping Cart</h2>
+            <h2 class="alert alert-success text-center">Shopping Cart</h2>
 
             <div style="float: left; font-size: 23px;">
                 <?php
                     if (isset($_SESSION['cart'])) {
                         echo '
                         <br><br>
-                                    <table style="float: left; background-color: white">
+                                    <table class="table table-bordered">
                                         <tr>
-                                            <th></th>
+                                       
                                             <th>Name</th>
                                             <th>Price</th>
                                             <th>Quantity</th>
@@ -180,7 +228,7 @@ if (isset($_POST['proceed'])) {
 
                                         $amount = $item["quan"] * $item["price"];
                                         echo '<tr>
-                                                <td><img src="image/product/'.$item['formula'].'/'.$item['picture'].'" alt=""></td>
+                                               
                                                 <td>'.$item["pName"].'</td>
                                                 <td>'.$item["price"].'</td>
                                                 <td>'.$item["quan"].'</td>
@@ -202,17 +250,18 @@ if (isset($_POST['proceed'])) {
                     }
                 ?>
             </div>
-            <div style="float: right;">
+            <div>
                 <?php
                 if(isset($success_message)) {echo $success_message;}
                 elseif (isset($_POST['proceed'])) {
 
                     echo '
                   <div class="">
+                  
                   <div class="signupform_text"></div>
                   <div>
                      <form action="" method="POST" class="registration" enctype="multipart/form-data">
-                        <div class="signup_form" style=" margin-top: 38px; color: #169e8f">
+                        <div class="signup_form">
                             <h3>Payment Method</h3>
                             <p>Select a payment method and pay bill accurately on the given numbers. And provide transaction id in the field below. (Leave empty in case of cash on delivery)
                             <br>
@@ -249,14 +298,14 @@ if (isset($_POST['proceed'])) {
                               </td>
                            </div>
                            <br>
-                           <div>
+                           <div class="form-group">
                               <td>
-                                 <input name="transaction_id" placeholder="Transaction Id" class="email signupbox" type="text" size="30" value="">
+                                 <input name="transaction_id" placeholder="Transaction Id" class="email form-control" type="text" size="30" value="">
                               </td>
                            </div>
                         <div>
                         <div>
-                              <input name="confirm" class="uisignupbutton signupbutton" type="submit" value="Confirm Order">
+                              <input name="confirm" class="btn btn-info mb-3 btn-block" type="submit" value="Confirm Order">
                            </div>
                            </div>
                         </div>
@@ -271,21 +320,21 @@ if (isset($_POST['proceed'])) {
                   <div>
                      <form action="" method="POST" class="registration" enctype="multipart/form-data">
                         <div class="signup_form" style="    margin-top: 38px;">
-                           <div>
+                           <div class="form-group">
                               <td>
-                                 <input name="mobile" placeholder="Your mobile number" required="required" class="email signupbox" type="text" size="30" value="'.$umob_db.'">
+                                 <input name="mobile" placeholder="Your mobile number" required="required" class="email form-control" type="text" size="30" value="'.$umob_db.'">
                               </td>
                            </div>
-                           <div>
+                           <div class="form-group">
                               <td>
-                                 <input name="address" id="password-1" required="required"  placeholder="Write your full address" class="password signupbox " type="text" size="30" value="'.$uadd_db.'">
+                                 <input name="address" id="password-1" required="required"  placeholder="Write your full address" class="password form-control " type="text" size="30" value="'.$uadd_db.'">
                               </td>
                            </div>
                            <div>
                               <td>';
 
                     echo '<div>
-                              <input name="proceed" class="uisignupbutton signupbutton" type="submit" value="Proceed to Payment">
+                              <input name="proceed" class="btn btn-outline-info btn-block mt-2 mb-2" type="submit" value="Proceed to Payment">
                            </div>
                            <div class="signup_error_msg"> '; ?>
                     <?php

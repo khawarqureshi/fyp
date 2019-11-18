@@ -85,7 +85,7 @@ $quan = $_POST['quantity'];
       }
 
       $_SESSION['cart'][$poid] = compact('poid', 'pName', 'price', 'quan', 'picture', 'formula', 'category', 'filename');
-      $success_message = '<h3><span style="color: #169E8F;">Product added to cart. </span><a href="cart.php">Go to cart</a></h3>';
+      $success_message = '<h3><kbd>Product added to cart. <kbd><a href="cart.php" class="text-white">Go to carts</a></h3>';
    }
    catch(Exception $e) {
       $error_message = $e->getMessage();
@@ -201,21 +201,19 @@ $quan = $_POST['quantity'];
    <div class="holecontainer" style=" padding-top: 20px; padding: 0 20%">
       <div class="container signupform_content ">
          <div>
-
-            <h2 style="padding-bottom: 20px;">Order Form</h2>
-            <div style="float: right;">
             <?php 
                if(isset($success_message)) {echo $success_message;}
                echo '
+               <h2 class="alert alert-success text-center">Order Form</h2>
+               <div>
                   <div class="">
                   <div class="signupform_text"></div>
                   <div>
                      <form action="" method="POST" class="registration" enctype="multipart/form-data">
                         <div class="signup_form" style="    margin-top: 38px;">
-                           <div>
+                           <div class="form-group">
                               <td>
-                                 <select onchange="changeAmount()" name="quantity" required="required" id="productAmount" style=" font-size: 20px;
-                              font-style: italic; margin-bottom: 3px;margin-top: 0px;padding: 14px;line-height: 25px;border-radius: 4px;border: 1px solid #169E8F;color: #169E8F;margin-left: 0;width: 300px;background-color: transparent;" class="">';
+                                 <select class="form-control" onchange="changeAmount()" name="quantity" required="required" id="productAmount" >';
 
                
 
@@ -233,21 +231,20 @@ $quan = $_POST['quantity'];
 
                         if ($need_prescription) {
 
-                           echo '<div>
+                           echo '<div class="form-group">
                               <td>
-                                 <input name="prescription" required="required"  placeholder="Please upload medical prescription" class="password signupbox" type="file" size="30" value="" style="height: 100% !important;">
+                                 <input name="prescription" required="required"  placeholder="Please upload medical prescription" class="password form-control" type="file" size="30" value="" style="height: 100% !important;">
                               </td>
                            </div>
                            <div style="color: red; width: 300px !important">To order this medicine, you must upload a medical prescription by a doctor</div>';
                         }
 
-                           echo '<div>
-                              <input name="order" class="uisignupbutton signupbutton" type="submit" value="Add To Cart">
+                           echo '<div class="form-group">
+                              <input name="order" class="btn btn-primary btn-block" type="submit" value="Add To Cart">
                            </div>
                            <div class="signup_error_msg"> '; ?>
                               <?php 
-                                 if (isset($error_message)) {echo $error_message;}
-                                 
+                                 if (isset($error_message)) {echo $error_message;}  
                               ?>
                            <?php echo '</div>
                         </div>

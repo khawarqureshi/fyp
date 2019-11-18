@@ -203,94 +203,79 @@ $search_value = "";
 		<div class="container signupform_content ">
 			<div>
 
-				<h2 style="padding-bottom: 20px;">Edit Product Info</h2>
+				<h2 class="text-center alert alert-success">Edit Product Info</h2>
 				<div style="float: right;">
 				<?php 
 					echo '
 						<div class="">
 						<div class="signupform_text"></div>
 						<div>
-							<form action="" method="POST" class="registration">
-								<div class="signup_form">
-									<div>
-										<td >
-											<input name="pname" id="first_name" placeholder="Product Name" required="required" class="first_name signupbox" type="text" size="30" value="'.$pName.'" >
-										</td>
-									</div>
-									<div>
-										<td >
-											<input name="price" id="last_name" placeholder="Price" required="required" class="last_name signupbox" type="text" size="30" value="'.$price.'" >
-										</td>
-									</div>
-									<div>
-										<td>
-											<input name="available" placeholder="Available Quantity" required="required" class="email signupbox" type="text" size="30" value="'.$available.'">
-										</td>
-									</div>
-									<div>
-										<td >
-											<input name="descri" id="first_name" placeholder="Description" required="required" class="first_name signupbox" type="text" size="30" value="'.$description.'" >
-										</td>
-									</div>
-									<div>
-										<td>
-											<select name="category" required="required" style=" font-size: 20px;
-										font-style: italic;margin-bottom: 3px;margin-top: 0px;padding: 14px;line-height: 25px;border-radius: 4px;border: 1px solid #169E8F;color: #169E8F;margin-left: 0;width: 300px;background-color: transparent;" class="">
-												<option selected value="'.$category.'">'.$categoryu.'</option>
-												<option value="category">category</option>
-											</select>
-										</td>
-									</div>
-									<div>
-										<select name="type" required="required" style=" font-size: 20px;
-										font-style: italic;margin-bottom: 3px;margin-top: 0px;padding: 14px;line-height: 25px;border-radius: 4px;border: 1px solid #169E8F;color: #169E8F;margin-left: 0;width: 300px;background-color: transparent;" class="">
-											<option selected value="'.$type.'">'.$typeu.'</option>
-												
-												
-												<option value="Tablet">Tablet</option>
-												<option value="Syrup">Syrup</option>
-												<option value="Drops">Drops</option>
-												<option value="Injection">Injection</option>
+<form action="" method="POST" class="registration">
+<div class="signup_form">
+<div class="form-group">
+<input name="pname" id="first_name" placeholder="Product Name" required="required" class="first_name form-control" type="text" size="30" value="'.$pName.'" >
+</div>
+<div class="form-group">
 
-											
-											</select>
-									</div>
-									<div>
-										<td>
-											<select name="formula" required="required" style=" font-size: 20px;
-										font-style: italic;margin-bottom: 3px;margin-top: 0px;padding: 14px;line-height: 25px;border-radius: 4px;border: 1px solid #169E8F;color: #169E8F;margin-left: 0;width: 300px;background-color: transparent;" class="">
-												<option selected value="'.$formula.'">'.$itemu.'</option>
-												<option value="Medicine">Medicine</option>
-												<option value="Depression">Depression</option>
-												<option value="Infection">Infection</option>
-												<option value="Allergy">Allergy</option>
-												<option value="Orthopedic">Orthopedic</option>
-												<option value="Nutritional">Nutritional</option>
-												<option value="Nausea">Nausea</option>
-												<option value="EyeInfection">EyeInfection</option>
-												<option value="Other">Other</option>
-											</select>
-										</td>
-									</div>
-									<div>
-										<td>
-											<input name="code" id="password-1" required="required"  placeholder="Code" class="password signupbox " type="text" size="30" value="'.$code.'">
-										</td>
-									</div>
-									<div>
-										<input name="updatepro" class="uisignupbutton signupbutton" type="submit" value="Update Product">
-									</div>
-									<div>
-										<input name="delprod" class="uisignupbutton signupbutton" type="submit" value="Delete This Product">
-									</div>
-									<div class="signup_error_msg">
-										<?php 
-											if (isset($error_message)) {echo $error_message;}
-											
-										?>
-									</div>
-								</div>
-							</form>
+<input name="price" id="last_name" placeholder="Price" required="required" class="last_name form-control" type="text" size="30" value="'.$price.'" >
+</div>
+<div class="form-group">
+<input name="available" placeholder="Available Quantity" required="required" class="email form-control" type="text" size="30" value="'.$available.'">
+</div>
+<div class="form-group">
+
+<input name="descri" id="first_name" placeholder="Description" required="required" class="first_name form-control" type="text" size="30" value="'.$description.'" >
+</div>
+	<div class="form-group">
+<select name="category" class="form-control" required="required" >
+<option selected value="'.$category.'">'.$categoryu.'</option>
+<option value="category">category</option>
+			</select>
+		</div>
+	<div class="form-group">
+		<select name="type" required="required"  class="form-control">
+			<option selected value="'.$type.'">'.$typeu.'</option>
+				
+				
+				<option value="Tablet">Tablet</option>
+				<option value="Syrup">Syrup</option>
+				<option value="Drops">Drops</option>
+				<option value="Injection">Injection</option>
+
+			
+			</select>
+	</div>
+	<div>
+												<select name="formula" class="form-control" required>
+				<option selected value="'.$formula.'">'.$itemu.'</option>
+				<option value="Medicine">Medicine</option>
+				<option value="Depression">Depression</option>
+				<option value="Infection">Infection</option>
+				<option value="Allergy">Allergy</option>
+				<option value="Orthopedic">Orthopedic</option>
+				<option value="Nutritional">Nutritional</option>
+				<option value="Nausea">Nausea</option>
+				<option value="EyeInfection">EyeInfection</option>
+				<option value="Other">Other</option>
+			</select>
+											</div>
+	<div>
+												<input name="code" id="password-1" required="required"  placeholder="Code" class="password form-control " type="text" size="30" value="'.$code.'">
+											</div>
+	<div>
+		<input name="updatepro" class="btn btn-success btn-block mb-2 mt-2" type="submit" value="Update Product">
+	</div>
+	<div>
+		<input name="delprod" class="btn btn-danger btn-block" type="submit" value="Delete This Product">
+	</div>
+	<div class="signup_error_msg">
+		<?php 
+			if (isset($error_message)) {echo $error_message;}
+			
+		?>
+	</div>
+</div>
+</form>
 						</div>
 					</div>
 
@@ -307,28 +292,26 @@ $search_value = "";
 				<?php
 					echo '
 						<ul style="float: left;">
-							<li style="float: left; padding: 0px 25px 25px 25px;">
+							<li style="float: left; padding: 0px 25px 25px 25px;list-style:none;">
 								<div class="home-prodlist-img prodlist-img">';
 								if (file_exists('../image/product/'.$category.'/'.$picture.'')){
 									echo '<img src="../image/product/'.$category.'/'.$picture.'" class="home-prodlist-imgi">';
 								}else {
 									echo '
-									<div class="home-prodlist-imgi" style="text-align: center; padding: 0 0 6px 0;">No Image Found!</div>';
+									<div class="alert alert-warning mt-2 btn-block">No Image Found!</div>';
 								} echo '
 									
 								</div>
 							</li>
-							<li>
+							<li style="list-style:none">
 								<form action="" method="POST" class="registration" enctype="multipart/form-data">
 										<div class="signup_form">
-											<div>
-												<td>
-													<input name="profilepic" style="width: 115px;" class="password signupbox" type="file" value="Add Picture">
-												</td>
-											</div>
-											<div>
-												<input name="updatepic" style="width: 144px;" class="uisignupbutton signupbutton" type="submit" value="Change Picture">
-											</div>
+<div class="form-group">
+<input name="profilepic"  class="form-control" type="file" value="Add Picture">
+</div>
+<div>
+<input name="updatepic" style="width: 144px;" class="btn btn-outline-info" type="submit" value="Change Picture">
+</div>
 											<div class="signup_error_msg">';
 											if(isset($error_message)) {echo $error_message;}
 											' </div>
