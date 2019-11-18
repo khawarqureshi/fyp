@@ -164,15 +164,7 @@ $search_value = "";
 				?>
 	  </li>
 	  <li class="ml-1">
-	  <?php
-				if ($user!="") {
-
-					echo '<a class="btn btn-primary" href="https://api.whatsapp.com/send?phone=03125544577">whatsapp</a>';
-				} else {
-
-					echo '<a href="signin.php" class="btn btn-success">whatsapp</a>';
-				}
-?>
+	 
 	  </li>
 	  <li class="nav-item ml-1">
 				<?php 
@@ -222,6 +214,10 @@ $search_value = "";
 											<input name="price" id="last_name" placeholder="Price" required="required" class="last_name signupbox" type="text" size="30" value="'.$price.'" >
 										</td>
 									</div>
+
+                          
+
+									
 									<div>
 										<td>
 											<input name="available" placeholder="Available Quantity" required="required" class="email signupbox" type="text" size="30" value="'.$available.'">
@@ -237,7 +233,16 @@ $search_value = "";
 											<select name="category" required="required" style=" font-size: 20px;
 										font-style: italic;margin-bottom: 3px;margin-top: 0px;padding: 14px;line-height: 25px;border-radius: 4px;border: 1px solid #169E8F;color: #169E8F;margin-left: 0;width: 300px;background-color: transparent;" class="">
 												<option selected value="'.$category.'">'.$categoryu.'</option>
-												<option value="category">category</option>
+										
+												<option value="Headache">Headache</option>
+																<option value="Depression">Depression</option>
+																<option value="Infection">Infection</option>
+																<option value="Allergy">Allergy</option>
+																<option value="Orthopedic">Orthopedic</option>
+																<option value="Nutritional">Nutritional</option>
+																<option value="Nausea">Nausea</option>
+																<option value="EyeInfection">EyeInfection</option>
+															</select>
 											</select>
 										</td>
 									</div>
@@ -255,23 +260,23 @@ $search_value = "";
 											
 											</select>
 									</div>
+
+
 									<div>
 										<td>
 											<select name="formula" required="required" style=" font-size: 20px;
 										font-style: italic;margin-bottom: 3px;margin-top: 0px;padding: 14px;line-height: 25px;border-radius: 4px;border: 1px solid #169E8F;color: #169E8F;margin-left: 0;width: 300px;background-color: transparent;" class="">
 												<option selected value="'.$formula.'">'.$itemu.'</option>
-												<option value="Medicine">Medicine</option>
-												<option value="Depression">Depression</option>
-												<option value="Infection">Infection</option>
-												<option value="Allergy">Allergy</option>
-												<option value="Orthopedic">Orthopedic</option>
-												<option value="Nutritional">Nutritional</option>
-												<option value="Nausea">Nausea</option>
-												<option value="EyeInfection">EyeInfection</option>
-												<option value="Other">Other</option>
+												
 											</select>
 										</td>
 									</div>
+									
+									
+
+
+
+
 									<div>
 										<td>
 											<input name="code" id="password-1" required="required"  placeholder="Code" class="password signupbox " type="text" size="30" value="'.$code.'">
