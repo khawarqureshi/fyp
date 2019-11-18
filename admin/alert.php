@@ -96,9 +96,7 @@ $search_value = "";
 				?>
 	  </li>
 	  <li class="ml-1">
-	  <?php
-			
-?>
+	  
 	  </li>
 	  <li class="nav-item ml-1">
 				<?php 

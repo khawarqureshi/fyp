@@ -51,7 +51,7 @@ $search_value = "";
 				?>
 	  </li>
 	  <li class="ml-1">
-	  <?php
+	<!--   <?php
 				if ($user!="") {
 
 					echo '<a class="btn btn-primary" href="https://api.whatsapp.com/send?phone=03125544577">whatsapp</a>';
@@ -59,7 +59,7 @@ $search_value = "";
 
 					echo '<a href="signin.php" class="btn btn-success">whatsapp</a>';
 				}
-?>
+?> -->
 	  </li>
 	  <li class="nav-item ml-1">
 				<?php 
