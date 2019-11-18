@@ -40,6 +40,10 @@ if (isset($_POST['proceed'])) {
 
     try {
 
+        if ($_POST['payment_method'] != 'cash' && !$_POST['transaction_id']) {
+            throw Exception('Transaction Id is required');
+        }
+
         $mbl = $_SESSION['mbl'];
         $addr = $_SESSION['addr'];
 
@@ -216,7 +220,7 @@ if (isset($_POST['proceed'])) {
                            <div>
                               <td>
                               <label>
-                                 <input name="payment_method" type="radio" checked value="cash"> Cash On Delivery
+                                 <input name="payment_method" type="radio" checked value="cash" > Cash On Delivery
                                 </label>
                               </td>
                            </div>
@@ -247,7 +251,7 @@ if (isset($_POST['proceed'])) {
                            <br>
                            <div>
                               <td>
-                                 <input name="transaction_id" placeholder="Transaction Id" required="required" class="email signupbox" type="text" size="30" value="">
+                                 <input name="transaction_id" placeholder="Transaction Id" class="email signupbox" type="text" size="30" value="">
                               </td>
                            </div>
                         <div>

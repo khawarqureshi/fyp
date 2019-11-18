@@ -68,7 +68,7 @@ else {
 	<div class="container col-md-10">
 		
 		<?php 
-			$getposts = mysqli_query($conn, "SELECT * FROM products WHERE available >='1' AND category ='EyeInfection'  ORDER BY id DESC LIMIT 10") or die(mysqli_error($conn));
+			$getposts = mysqli_query($conn, "SELECT * FROM products WHERE available >='1' AND category ='EyeInfection'") or die(mysqli_error($conn));
 					if (mysqli_num_rows($getposts)) {
 					echo '<ul id="recs">';
 					while ($row = mysqli_fetch_assoc($getposts)) {

@@ -41,7 +41,7 @@ else {
 	<div style="padding: 30px 120px; font-size: 25px; margin: 0 auto; display: table; width: 98%;">
 		<div>
 		<?php 
-			$getposts = mysqli_query($conn, "SELECT * FROM products WHERE available >='1' AND category ='toiletry'  ORDER BY id DESC LIMIT 10") or die(mysqli_error($conn));
+			$getposts = mysqli_query($conn, "SELECT * FROM products WHERE available >='1' AND category ='toiletry'") or die(mysqli_error($conn));     // WHERE available >='1' AND category ='toiletry'  ORDER BY id DESC LIMIT 10
 					if (mysqli_num_rows($getposts)) {
 					echo '<ul id="recs">';
 					while ($row = mysqli_fetch_assoc($getposts)) {
