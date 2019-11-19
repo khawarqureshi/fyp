@@ -63,7 +63,7 @@ if (isset($_POST['proceed'])) {
     $success = false;
     foreach ($_SESSION['cart'] as $poid => $product) {
         
-        $prescription = $product['filename'] ?: '';
+        $prescription = $product['picture'] ?: '';
         $success = mysqli_query($conn, "INSERT INTO orders (uid,pid,quantity,prescription,oplace,mobile,odate,ddate,payment_method,transaction_id) VALUES ('$user','$poid',$product[quan],'$prescription','$addr','$mbl', '$d','$date', '$_POST[payment_method]', '$_POST[transaction_id]')");
     }
 
