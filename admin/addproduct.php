@@ -142,97 +142,95 @@ $search_value = "";
 			if(isset($success_message)) {echo $success_message;}
 			else {
 				echo '
-					<div class="holecontainer" style="float: right; margin-right: 36%; padding-top: 20px;">
-						<div class="container">
-							<div>
-								<div>
-									<div class="signupform_content">
-										<h2>Add Product Form!</h2>
-										<div class="signup_error_msg">';
-											if (isset($error_message)) {echo $error_message;}
-										echo '</div>
-										<div class="signupform_text"></div>
-										<div>
-											<form action="" method="POST" class="registration" enctype="multipart/form-data">
-												<div class="signup_form">
-													<div>
-														<td >
-															<input name="pname" id="first_name" placeholder="Product Name" required="required" class="first_name signupbox" type="text" size="30" value="'.$pname.'" >
-														</td>
-													</div>
-													<div>
-														<td >
-															<input name="price" id="last_name" placeholder="Price" required="required" class="last_name signupbox" type="text" size="30" value="'.$price.'" >
-														</td>
-													</div>
+<div class="container">
+	<div class="col-md-12">
+		<div class="d-flex justify-content-center">
+			<div>
+				<div class="signupform_content">
+					<h2 class="alert alert-success text-center">Add Product Form!</h2>
+					<div class="signup_error_msg">';
+						if (isset($error_message)) {echo $error_message;}
+					echo '</div>
+					<div class="signupform_text"></div>
+					<div>
+	<form action="" method="POST" class="registration" enctype="multipart/form-data">
+		<div class="signup_form">
+			<div class="form-control">
+			
+					<input name="pname" id="first_name" placeholder="Product Name" required="required" class="first_name form-control" type="text" size="30" value="'.$pname.'" >
+				
+			</div>
+			<div class="form-control">
+			
+					<input name="price" id="last_name" placeholder="Price" required="required" class="last_name form-control" type="text" size="30" value="'.$price.'" >
+				
+			</div>
 
-													<div>
-													  <td >
-													    	<input name="formula" id="mid_name" placeholder="formula" required="required" class="mid_name signupbox" type="text" size="30" value="'.$formula.'" >
-													  </td>
-											    	</div>
+			<div class="form-control">
+			
+					<input name="formula" id="mid_name" placeholder="formula" required="required" class="mid_name form-control" type="text" size="30" value="'.$formula.'" >
+				
+			</div>
 
 
-													<div>
-														<td>
-															<input name="available" placeholder="Available Quantity" required="required" class="email signupbox" type="text" size="30" value="'.$available.'">
-														</td>
-													</div>
-													<div>
-														<td >
-															<input name="descri" id="first_name" placeholder="Description" required="required" class="first_name signupbox" type="text" size="30" value="'.$descri.'" >
-														</td>
-													</div>
-													<div>
-														<td>
-															<select name="category" required="required" style=" font-size: 20px;
-														font-style: italic;margin-bottom: 3px;margin-top: 0px;padding: 14px;line-height: 25px;border-radius: 4px;border: 1px solid #169E8F;color: #169E8F;margin-left: 0;width: 300px;background-color: transparent;" class="">
-																<option selected value="category">category</option>
-																<option value="Headache">Headache</option>
-																<option value="Depression">Depression</option>
-																<option value="Infection">Infection</option>
-																<option value="Allergy">Allergy</option>
-																<option value="Orthopedic">Orthopedic</option>
-																<option value="Nutritional">Nutritional</option>
-																<option value="Nausea">Nausea</option>
-																<option value="EyeInfection">EyeInfection</option>
-															</select>
-														</td>
-													</div>
-													<div>
-														<select name="type" required="required" style=" font-size: 20px;
-														font-style: italic;margin-bottom: 3px;margin-top: 0px;padding: 14px;line-height: 25px;border-radius: 4px;border: 1px solid #169E8F;color: #169E8F;margin-left: 0;width: 300px;background-color: transparent;" class="">
-														 
-														        <option selected value="Type">Type</option>
-																<option value="Tablet">Tablet</option>
-																<option value="Syrup">Syrup</option>
-																<option value="Drops">Drops</option>
-																<option value="Injection">Injection</option>
-															</select>
-													</div>
-												
-													<div>
-														<td>
-															<input name="code" id="password-1" required="required"  placeholder="Code" class="password signupbox " type="text" size="30" value="'.$pCode.'">
-														</td>
-													</div>
-													<div>
-														<td>
-															<input name="profilepic" class="password signupbox" type="file" value="Add Pic">
-														</td>
-													</div>
-													<div>
-														<input name="signup" class="uisignupbutton signupbutton" type="submit" value="Add Product">
-													</div>
-												</div>
-											</form>
-											
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+			<div class="form-control">
+			
+					<input name="available" placeholder="Available Quantity" required="required" class="email form-control" type="text" size="30" value="'.$available.'">
+			
+			</div>
+			<div class="form-control">
+			
+					<input name="descri" id="first_name" placeholder="Description" required="required" class="first_name form-control" type="text" size="30" value="'.$descri.'" >
+				
+			</div>
+			<div class="form-control">
+				
+					<select name="category" required>
+						<option selected value="category">category</option>
+						<option value="Headache">Headache</option>
+						<option value="Depression">Depression</option>
+						<option value="Infection">Infection</option>
+						<option value="Allergy">Allergy</option>
+						<option value="Orthopedic">Orthopedic</option>
+						<option value="Nutritional">Nutritional</option>
+						<option value="Nausea">Nausea</option>
+						<option value="EyeInfection">EyeInfection</option>
+					</select>
+			
+			</div>
+			<div class="form-control">
+				<select name="type" required>
+					
+						<option selected value="Type">Type</option>
+						<option value="Tablet">Tablet</option>
+						<option value="Syrup">Syrup</option>
+						<option value="Drops">Drops</option>
+						<option value="Injection">Injection</option>
+					</select>
+			</div>
+		
+			<div class="form-control">
+				
+					<input name="code" id="password-1" required="required"  placeholder="Code" class="password form-control " type="text" size="30" value="'.$pCode.'">
+				
+			</div>
+			<div class="form-control">
+			
+					<input name="profilepic" class="password form-control" type="file" value="Add Pic">
+			
+			</div>
+			<div>
+				<input name="signup" class="btn btn-primary btn-block" type="submit" value="Add Product">
+			</div>
+		</div>
+	</form>
+	
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 				';
 			}
 

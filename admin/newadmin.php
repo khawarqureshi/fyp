@@ -196,62 +196,61 @@ $search_value = "";
 							<div>
 								<div>
 									<div class="signupform_content">
-										<h2>New Admin Form!</h2>
+										<h2 class="text-center alert alert-success">New Admin Form!</h2>
 										<div class="signupform_text"></div>
 										<div>
-											<form action="" method="POST" class="registration">
-												<div class="signup_form">
-													<div>
-														<td >
-															<input name="first_name" id="first_name" placeholder="First Name" required="required" class="first_name signupbox" type="text" size="30" value="" >
-														</td>
-													</div>
-													<div>
-														<td >
-															<input name="last_name" id="last_name" placeholder="Last Name" required="required" class="last_name signupbox" type="text" size="30" value="" >
-														</td>
-													</div>
-													<div>
-														<td>
-															<input name="email" placeholder="Enter Your Email" required="required" class="email signupbox" type="email" size="30" value="">
-														</td
-			>										</div>
-													<div>
-														<td>
-															<input name="mobile" placeholder="Enter Your Mobile" required="required" class="email signupbox" type="text" size="30" value="">
-														</td>
-													</div>
-													<div>
-														<td>
-															<input name="signupaddress" placeholder="Write Your Full Address" required="required" class="email signupbox" type="text" size="30" value="">
-														</td>
-													</div>
-													<div>
-														<td>
-															<input name="password" id="password-1" required="required"  placeholder="Enter New Password" class="password signupbox " type="password" size="30" value="">
-														</td>
-													</div>
-													<div>
-														<td>
-															<select name="admintype" required="required" style=" font-size: 20px;
-														font-style: italic;margin-bottom: 3px;margin-top: 0px;padding: 14px;line-height: 25px;border-radius: 4px;border: 1px solid #169E8F;color: #169E8F;margin-left: 0;width: 300px;background-color: transparent;" class="">
-																<option selected value="manager">Manager</option>
-																<option value="seller">Seller</option>
-																<option value="other">Other</option>
-															</select>
-														</td>
-													</div>
-													<div>
-														<input name="signup" class="uisignupbutton signupbutton" type="submit" value="Add Admin!">
-													</div>
-													<div class="signup_error_msg">
-														<?php 
-															if (isset($error_message)) {echo $error_message;}
-															
-														?>
-													</div>
-												</div>
-											</form>
+<form action="" method="POST" class="registration">
+	<div class="signup_form">
+		<div class="form-control">
+			
+				<input name="first_name" id="first_name" placeholder="First Name" required="required" class="first_name form-control" type="text" size="30" value="" >
+		
+		</div>
+		<div  class="form-control">
+		
+				<input name="last_name" id="last_name" placeholder="Last Name" required="required" class="last_name form-control" type="text" size="30" value="" >
+		
+		</div>
+		<div  class="form-control">
+			
+				<input name="email" placeholder="Enter Your Email" required="required" class="email form-control" type="email" size="30" value="">
+
+										</div>
+		<div  class="form-control">
+			
+				<input name="mobile" placeholder="Enter Your Mobile" required="required" class="email form-control" type="text" size="30" value="">
+			
+		</div>
+		<div  class="form-control">
+		
+				<input name="signupaddress" placeholder="Write Your Full Address" required="required" class="email form-control" type="text" size="30" value="">
+			
+		</div>
+		<div  class="form-control">
+		
+				<input name="password" id="password-1" required="required"  placeholder="Enter New Password" class="password form-control " type="password" size="30" value="">
+		
+		</div>
+		<div class="form-control">
+			
+				<select name="admintype" class="form-control" required="required">
+					<option selected value="manager">Manager</option>
+					<option value="seller">Seller</option>
+					<option value="other">Other</option>
+				</select>
+			
+		</div>
+		<div >
+			<input name="signup" class="btn btn-primary btn-block" type="submit" value="Add Admin!">
+		</div>
+		<div class="signup_error_msg">
+			<?php 
+				if (isset($error_message)) {echo $error_message;}
+				
+			?>
+		</div>
+	</div>
+</form>
 											
 										</div>
 									</div>
