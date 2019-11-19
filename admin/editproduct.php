@@ -207,10 +207,16 @@ $search_value = "";
 <div class="form-group">
 <input name="pname" id="first_name" placeholder="Product Name" required="required" class="first_name form-control" type="text" size="30" value="'.$pName.'" >
 </div>
-<div class="form-group">
 
+<div class="form-group">
 <input name="price" id="last_name" placeholder="Price" required="required" class="last_name form-control" type="text" size="30" value="'.$price.'" >
 </div>
+
+<div class="form-group">
+<input name="formula" placeholder="formula" required="required" class="last_name form-control" type="text" size="30" value="'.$itemu.'" >
+</div>
+	
+
 <div class="form-group">
 <input name="available" placeholder="Available Quantity" required="required" class="email form-control" type="text" size="30" value="'.$available.'">
 </div>
@@ -221,7 +227,16 @@ $search_value = "";
 	<div class="form-group">
 <select name="category" class="form-control" required="required" >
 <option selected value="'.$category.'">'.$categoryu.'</option>
-<option value="category">category</option>
+                <!-- <option value="category">category</option> -->
+                <option value="Headache">Headache</option>
+				<option value="Depression">Depression</option>
+				<option value="Infection">Infection</option>
+				<option value="Allergy">Allergy</option>
+				<option value="Orthopedic">Orthopedic</option>
+				<option value="Nutritional">Nutritional</option>
+				<option value="Nausea">Nausea</option>
+				<option value="EyeInfection">EyeInfection</option>
+				<!-- <option value="Other">Other</option> -->
 			</select>
 		</div>
 	<div class="form-group">
@@ -237,23 +252,20 @@ $search_value = "";
 			
 			</select>
 	</div>
-	<div>
-												<select name="formula" class="form-control" required>
+
+
+
+	<!-- <div>
+			    <select name="formula" class="form-control" required>
 				<option selected value="'.$formula.'">'.$itemu.'</option>
-				<option value="Medicine">Medicine</option>
-				<option value="Depression">Depression</option>
-				<option value="Infection">Infection</option>
-				<option value="Allergy">Allergy</option>
-				<option value="Orthopedic">Orthopedic</option>
-				<option value="Nutritional">Nutritional</option>
-				<option value="Nausea">Nausea</option>
-				<option value="EyeInfection">EyeInfection</option>
-				<option value="Other">Other</option>
+			
 			</select>
-											</div>
-	<div>
-												<input name="code" id="password-1" required="required"  placeholder="Code" class="password form-control " type="text" size="30" value="'.$code.'">
-											</div>
+		</div> -->
+
+
+	            <div>
+				<input name="code" id="password-1" required="required"  placeholder="Code" class="password form-control " type="text" size="30" value="'.$code.'">
+				</div>
 	<div>
 		<input name="updatepro" class="btn btn-success btn-block mb-2 mt-2" type="submit" value="Update Product">
 	</div>
