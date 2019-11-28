@@ -13,6 +13,11 @@ else {
 			$uname_db = $get_user_email['firstName'];
 }
 
+if (isset($_POST['odstatus'])) {
+	$result = mysqli_query($conn, "UPDATE orders SET odstatus='$_POST[odstatus]' WHERE oid='$_POST[oid]'");
+	echo $result;die;
+}
+
 ?>
 
 
@@ -24,6 +29,7 @@ else {
 		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 		crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	</head>
 	<body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light shadow">
@@ -81,16 +87,15 @@ else {
 				<tr>
 					<th>Id</th>
 					<th>User Id</th>
+					<th>User Name</th>
+					<th>Mobile</th>
+					<th>Email</th>
+					<th>Address</th>
 					<th>Product Id</th>
 					<th>Q*P=T</th>
-					<th>Order Place</th>
-					<th>Mobile</th>
 					<th>Order Status</th>
 					<th>Order Date</th>
 					<th>Delivery Date</th>
-					<th>User Name</th>
-					<th>User Mobile</th>
-					<th>User Email</th>
 					<!-- <th>Edit</th> -->
 				</tr>
 				<tr>
@@ -128,17 +133,23 @@ else {
 					 ?>
 					<td class='font-weight-light'><?php echo $oid; ?></td>
 					<td><?php echo $ouid; ?></td>
-					<td><?php echo $opid; ?></td>
-					<td><?php echo ''.$oquantity.' * '.$oprice.' = '.$oquantity*$oprice.''; ?></td>
-					<td><?php echo $oplace; ?></td>
+					<td><?php echo $ofname; ?></td>
 					<td><?php echo $omobile; ?></td>
-					<td><?php echo $odstatus; ?></td>
+					<td><?php echo $ouemail; ?></td>
+					<td><?php echo $oplace; ?></td>
+					<td><?php echo '<a href="../category/view_product.php?pid='.$opid.'">'.$opid.'</a>'; ?></td>
+					<td><?php echo ''.$oquantity.' * '.$oprice.' = '.$oquantity*$oprice.''; ?></td>
+					<td>
+						<select name="dstatus" id="odstatus" data-id="<?=$oid?>">
+							<option value="<?=$odstatus?>"><?php echo ucfirst($odstatus); ?></option>
+							<option value="confirmed">Confirmed</option>
+							<option value="cancelled">Cancelled</option>
+							<option value="delivered">Delivered</option>
+						</select>
+					</td>
 					<td><?php echo $odate; ?></td>
 					<td><?php echo $ddate; ?></td>
 
-					<td><?php echo $ofname; ?></td>
-					<td><?php echo $oumobile; ?></td>
-					<td><?php echo $ouemail; ?></td>
 					<!-- <td><?php echo '<div class="home-prodlist-img"><a href="editorder.php?eoid='.$oid.'">
 									<img src="../image/product/'.$opitem.'/'.$oppicture.'" class="home-prodlist-imgi" style="height: 75px; width: 75px;">
 									</a>
@@ -147,5 +158,19 @@ else {
 				<?php } ?>
 			</table>
 		</div>
+
+		<script>
+			$('#odstatus').change(function(){
+				let odstatus = $(this).val();
+				let oid = $(this).data('id');
+				
+				$.post(window.location, {
+					oid: oid,
+					odstatus: odstatus
+				}, function(){
+
+				});
+			});
+		</script>
 	</body>
 </html>

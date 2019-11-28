@@ -114,7 +114,7 @@ require 'config.php';
 <! -- Amount of Transaction from merchant’s website -->
 <input name="amount" value="1033" hidden = "true"/>
 <! – Post back URL from merchant’s website -- >
-<input name="postBackURL" value=" https://www.consuldents.com/easypay/confirmEasypay.php" hidden = "true"/>
+<input name="postBackURL" value=" http://localhost/OnlinePharmacy/telenor/confirmEasypay.php" hidden = "true"/>
 <! – Order Reference Number from merchant’s website -- >
 <input name="orderRefNum" value="1101" hidden = "true"/>
 <! – Expiry Date from merchant’s website (Optional) -- >

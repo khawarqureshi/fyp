@@ -185,8 +185,8 @@ $search_value = "";
 			</div>
 			<div class="form-control">
 				
-					<select name="category" required>
-						<option selected value="category">category</option>
+					<select name="category" class="form-control" required>
+						<option selected value="category">Category</option>
 						<option value="Headache">Headache</option>
 						<option value="Depression">Depression</option>
 						<option value="Infection">Infection</option>
@@ -199,7 +199,7 @@ $search_value = "";
 			
 			</div>
 			<div class="form-control">
-				<select name="type" required>
+				<select name="type" class="form-control" required>
 					
 						<option selected value="Type">Type</option>
 						<option value="Tablet">Tablet</option>

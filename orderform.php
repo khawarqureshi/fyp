@@ -85,7 +85,7 @@ $quan = $_POST['quantity'];
       }
 
       $_SESSION['cart'][$poid] = compact('poid', 'pName', 'price', 'quan', 'picture', 'formula', 'category', 'filename');
-      $success_message = '<h3><kbd>Product added to cart. <kbd><a href="cart.php" class="text-white">Go to carts</a></h3>';
+      $success_message = '<small>Product added to cart. <a href="cart.php" class="text-info lead">Go to cart</a></small>';
    }
    catch(Exception $e) {
       $error_message = $e->getMessage();
@@ -103,6 +103,7 @@ $quan = $_POST['quantity'];
 		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
 		crossorigin="anonymous">
+     
    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
@@ -264,15 +265,15 @@ $quan = $_POST['quantity'];
          <div>
             <?php
                echo '
-                  <ul style="float: left;">
-                     <li style="float: left; padding: 0px 25px 25px 25px;">
-                        <div class="home-prodlist-img"><a href="'.$category.'/view_product.php?pid='.$id.'">
-                           <img src="image/product/'.$formula.'/'.$picture.'" class="home-prodlist-imgi">
+                  <ul class="m-auto">
+        
+                        <div style="width:300px;height:300px;" class="home-prodlist-img"><a href="'.$category.'/view_product.php?pid='.$id.'">
+                           <img src="image/product/'.$category.'/'.$picture.'" class="img-thumbnail">
                            </a>
                            <div style="text-align: center; padding: 0 0 6px 0;"> <span style="font-size: 15px;">'.$pName.'</span><br> Price: <span id="amountText">'.$price.'</span> PKR <span id="aHiddenText" style="display:none">'.$price.'</span></div>
                         </div>
                         
-                     </li>
+                  
                   </ul>
                ';
             ?>

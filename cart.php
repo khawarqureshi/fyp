@@ -205,52 +205,51 @@ if (isset($_POST['proceed'])) {
 	</div>	
 <div class="holecontainer" >
     <div class="container signupform_content ">
-        <div>
-            <br>
-            <h2 class="alert alert-success text-center">Shopping Cart</h2>
+        <br>
+        <h2 class="alert alert-success text-center">Shopping Cart</h2>
 
-            <div style="float: left; font-size: 23px;">
+        <div class="row">
+           
                 <?php
                     if (isset($_SESSION['cart'])) {
                         echo '
-                        <br><br>
-                                    <table class="table table-bordered">
-                                        <tr>
-                                       
-                                            <th>Name</th>
-                                            <th>Price</th>
-                                            <th>Quantity</th>
-                                            <th>Amount</th>
-                                        </tr>';
+                            <table class="table table-bordered">
+                                <tr>
+                                
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Amount</th>
+                                </tr>';
 
-                                    $total = 0;
-                                    foreach ($_SESSION['cart'] as $item) {
+                        $total = 0;
+                        foreach ($_SESSION['cart'] as $item) {
 
-                                        $amount = $item["quan"] * $item["price"];
-                                        echo '<tr>
-                                               
-                                                <td>'.$item["pName"].'</td>
-                                                <td>'.$item["price"].'</td>
-                                                <td>'.$item["quan"].'</td>
-                                                <td>'.$amount.'</td>
-                                            </tr>';
+                            $amount = $item["quan"] * $item["price"];
+                            echo '<tr>
+                                    
+                                    <td>'.$item["pName"].'</td>
+                                    <td>'.$item["price"].'</td>
+                                    <td>'.$item["quan"].'</td>
+                                    <td>'.$amount.'</td>
+                                </tr>';
 
-                                        $total += $amount;
-                                    }
+                            $total += $amount;
+                        }
+
                         echo "
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td><b>Total:</b></td>
-                                            <td><b>$total</b></td>
-                                        </tr>
-                                    </table>
-                                ";
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td><b>Total:</b></td>
+                                    <td><b>$total</b></td>
+                                </tr>
+                            </table>
+                        ";
                     }
                 ?>
             </div>
-            <div>
+            <div class="col-md-6">
                 <?php
                 if(isset($success_message)) {echo $success_message;}
                 elseif (isset($_POST['proceed'])) {
@@ -319,7 +318,7 @@ if (isset($_POST['proceed'])) {
                   <div class="signupform_text"></div>
                   <div>
                      <form action="" method="POST" class="registration" enctype="multipart/form-data">
-                        <div class="signup_form" style="    margin-top: 38px;">
+                        <div class="signup_form">
                            <div class="form-group">
                               <td>
                                  <input name="mobile" placeholder="Your mobile number" required="required" class="email form-control" type="text" size="30" value="'.$umob_db.'">

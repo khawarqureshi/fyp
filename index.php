@@ -53,7 +53,16 @@ else {
 	  <?php
 				if ($user!="") {
 
-					echo '<a class="btn btn-primary" href="https://api.whatsapp.com/send?phone=03125544577">whatsapp</a>';
+					//echo '<a class="btn btn-primary" href="https://api.whatsapp.com/send?phone=03125544577">whatsapp</a>';
+					
+					echo '<a class="btn btn-primary" href=https://wa.me/send?phone=03125544577">whatsapp</a>';
+
+					//echo '<a class="btn btn-primary" href=https://wa.me/?text=urlencodedtext">whatsapp</a>';
+
+                   // echo '<a class="btn btn-primary" href=https://api.whatsapp.com/send?phone=03125544577&text=Hello">whatsapp</a>';
+					
+					
+
 				} else {
 
 					echo '<a href="signin.php" class="btn btn-success">whatsapp</a>';

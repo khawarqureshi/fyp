@@ -40,10 +40,11 @@ $getposts = mysqli_query($conn, "SELECT * FROM products WHERE id ='$epid'") or d
 		$available =$row['available'];
 	}	
 
-//update product
-$pname = $price = $availble = $category = $type = $formula = $pcode = "";
-
 if (isset($_POST['updatepro'])) {
+
+	//update product
+	$pname = $price = $availble = $category = $type = $formula = $pcode = "";
+
 	$pname = $_POST['pname'];
 	$price = $_POST['price'];
 	$available = $_POST['available'];
@@ -197,7 +198,7 @@ $search_value = "";
 
 				<h2 class="text-center alert alert-success">Edit Product Info</h2>
 				<div style="float: right;">
-				<?php 
+				<?php
 					echo '
 						<div class="">
 						<div class="signupform_text"></div>

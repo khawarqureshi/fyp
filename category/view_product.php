@@ -132,10 +132,10 @@ $getposts = mysqli_query($conn, "SELECT * FROM products WHERE id ='$pid'") or di
 
 	</div>
 	<div class="container">
-		<h3>Recommand Product For You:</h3>
+		<h5>Recommendeded Product For You:</h5>
 		<div>
 		<?php 
-			$getposts = mysqli_query($conn, "SELECT * FROM products WHERE available >='1' AND id != '".$pid."' AND formula ='".$formula."'  ORDER BY RAND() LIMIT 3") or die(mysqli_error($conn));
+			$getposts = mysqli_query($conn, "SELECT * FROM products WHERE available >='1' AND id != '".$pid."' AND formula ='".$formula."' AND category ='".$category."'  ORDER BY RAND() LIMIT 3") or die(mysqli_error($conn));
 					if (mysqli_num_rows($getposts)) {
 					echo '<ul id="recs">';
 					while ($row = mysqli_fetch_assoc($getposts)) {

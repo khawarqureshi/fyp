@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
 
 * {
   margin: 0px;
   padding: 0px;
-  font-family: 'Quicksand', sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 
 .watsapp-img {
@@ -27,4 +27,9 @@
 
 ul {
   list-style: none !important;
+}
+
+.jumbotron {
+  padding: 2rem 2rem !important;
+  margin-bottom: 1rem !important;
 }
