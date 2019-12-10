@@ -132,7 +132,7 @@ $getposts = mysqli_query($conn, "SELECT * FROM products WHERE id ='$pid'") or di
 
 	</div>
 	<div class="container">
-		<h5>Recommendeded Product For You:</h5>
+		<h5>Recommendeded Products For You:</h5>
 		<div>
 		<?php 
 			$getposts = mysqli_query($conn, "SELECT * FROM products WHERE available >='1' AND id != '".$pid."' AND formula ='".$formula."' AND category ='".$category."'  ORDER BY RAND() LIMIT 3") or die(mysqli_error($conn));

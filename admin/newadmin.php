@@ -235,6 +235,7 @@ $search_value = "";
 			
 				<select name="admintype" class="form-control" required="required">
 					<option selected value="manager">Manager</option>
+					<option value="super">Super Admin</option>
 					<option value="seller">Seller</option>
 					<option value="other">Other</option>
 				</select>

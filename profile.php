@@ -204,7 +204,7 @@ $search_value = "";
 									<td><?php echo $dstatus; ?></td>
 									<td><?php echo 
 									'<div class="profile-img"><a href="'.$category.'/view_product.php?pid='.$pId.'">
-									<img src="image/product/'.$formula.'/'.$picture.'" 
+									<img src="image/product/'.$category.'/'.$picture.'" 
 									class="img-thumbnail"
 									>
 													</a>
